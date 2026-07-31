@@ -1,0 +1,325 @@
+/* ─────────────────────────────────────────────
+   FreshMart — supplementary styles
+   Tailwind handles most of the layout; this file
+   adds animations, scroll-reveal, dark mode,
+   RTL support, and component-specific touches.
+   ───────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─────────── DARK MODE ─────────── */
+html.dark {
+  color-scheme: dark;
+}
+html.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+html.dark .bg-white { background-color: #1e293b; }
+html.dark .bg-gray-50 { background-color: #1e293b; }
+html.dark .bg-cream { background-color: #1a1a2e; }
+html.dark .text-ink { color: #f1f5f9; }
+html.dark .border-gray-100 { border-color: #334155; }
+html.dark .border-gray-200 { border-color: #334155; }
+html.dark .text-gray-600 { color: #94a3b8; }
+html.dark .text-gray-700 { color: #cbd5e1; }
+html.dark .text-gray-500 { color: #94a3b8; }
+html.dark .hover\:bg-gray-50:hover { background-color: #334155; }
+html.dark .bg-brand-50 { background-color: rgba(34, 197, 94, 0.1); }
+html.dark .bg-brand-100 { background-color: rgba(34, 197, 94, 0.15); }
+html.dark .shadow-soft { box-shadow: 0 10px 30px -10px rgba(22, 163, 74, 0.15); }
+html.dark .product-card { background-color: #1e293b; border-color: #334155; }
+html.dark .bg-white\/90 { background-color: rgba(15, 23, 42, 0.9); }
+html.dark input, html.dark textarea, html.dark select {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+html.dark input::placeholder, html.dark textarea::placeholder {
+  color: #64748b;
+}
+
+/* ─────────── RTL SUPPORT ─────────── */
+[dir="rtl"] .ml-6 { margin-left: 0; margin-right: 1.5rem; }
+[dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .mr-0 { margin-right: 0; margin-left: auto; }
+[dir="rtl"] .left-3 { left: auto; right: 0.75rem; }
+[dir="rtl"] .right-0 { right: auto; left: 0; }
+[dir="rtl"] .-left-4 { -left: auto; right: -1rem; }
+[dir="rtl"] .-right-2 { -right: auto; left: -0.5rem; }
+[dir="rtl"] .-right-6 { -right: auto; left: -1.5rem; }
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+[dir="rtl"] .flex-row-reverse { flex-direction: row; }
+[dir="rtl"] [dir="rtl"] .-space-x-2 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+
+/* ─────────── SCROLL REVEAL ─────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal:nth-child(2) { transition-delay: 0.06s; }
+.reveal:nth-child(3) { transition-delay: 0.12s; }
+.reveal:nth-child(4) { transition-delay: 0.18s; }
+.reveal:nth-child(5) { transition-delay: 0.24s; }
+.reveal:nth-child(6) { transition-delay: 0.30s; }
+.reveal:nth-child(7) { transition-delay: 0.36s; }
+.reveal:nth-child(8) { transition-delay: 0.42s; }
+
+/* ─────────── HERO BLOB ─────────── */
+.hero-blob::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #bbf7d0 0%, #86efac 35%, transparent 70%);
+  z-index: 0;
+  filter: blur(2px);
+  animation: blob-rotate 22s linear infinite;
+}
+.hero-blob > img {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes blob-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─────────── FLOATING CHIPS ─────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+/* ─────────── PRODUCT CARD HOVER ─────────── */
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -18px rgba(22, 163, 74, 0.35);
+}
+.product-card .product-image {
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-image {
+  transform: scale(1.08);
+}
+
+/* ─────────── SERVICE CARD HOVER ─────────── */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px -20px rgba(22, 163, 74, 0.3);
+}
+
+/* ─────────── BLOG CARD HOVER ─────────── */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.15);
+}
+.blog-card .blog-image {
+  transition: transform 0.5s ease;
+}
+.blog-card:hover .blog-image {
+  transform: scale(1.06);
+}
+
+/* ─────────── BUTTON RIPPLE / FEEDBACK ─────────── */
+.btn-pop {
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+.btn-pop:active {
+  transform: scale(0.96);
+}
+
+/* ─────────── FAQ ACCORDION ─────────── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.faq-answer.open {
+  max-height: 500px;
+}
+
+/* ─────────── PRICING CARD ─────────── */
+.pricing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ─────────── COMING SOON COUNTDOWN ─────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+  50%      { box-shadow: 0 0 40px rgba(34, 197, 94, 0.6); }
+}
+.countdown-box {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─────────── TOAST / SNOTIFICATION ─────────── */
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.toast {
+  animation: slideIn 0.35s ease-out;
+}
+
+/* ─────────── DASHBOARD SIDEBAR ─────────── */
+.sidebar-link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sidebar-link.active {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* ─────────── SCROLLBAR (subtle) ─────────── */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #f9fafb; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+html.dark ::-webkit-scrollbar-track { background: #1e293b; }
+html.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+/* ─────────── REDUCED MOTION ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .animate-float,
+  .hero-blob::before,
+  .faq-answer,
+  .product-card,
+  .service-card,
+  .blog-card,
+  .pricing-card,
+  html {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .faq-answer { max-height: none; }
+}
+
+/* ─────────── RESPONSIVE ─────────── */
+@media (max-width: 639px) {
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+
+  .product-card .p-4 {
+    padding: 0.75rem;
+  }
+
+  .product-card h3 {
+    font-size: 0.8125rem;
+    line-height: 1.3;
+  }
+
+  .product-card .text-lg {
+    font-size: 0.875rem;
+  }
+
+  .product-card .add-to-cart {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  table {
+    font-size: 0.8125rem;
+  }
+
+  table th, table td {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Navbar adjustments for mobile viewports */
+  .navbar-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] {
+    gap: 0.25rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] span.grid {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] span.grid svg {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+
+  .navbar-container a[aria-label="FreshMart home"] span.text-xl {
+    font-size: 0.95rem !important;
+  }
+
+  .navbar-container .ml-auto,
+  .navbar-container .md\:ml-0 {
+    gap: 0.1rem !important;
+  }
+
+  .navbar-container button,
+  .navbar-container a#cart-btn {
+    width: 1.85rem !important;
+    height: 1.85rem !important;
+  }
+
+  .navbar-container button svg,
+  .navbar-container a#cart-btn svg {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+
+  .navbar-container #cart-count {
+    min-width: 12px !important;
+    height: 12px !important;
+    font-size: 7px !important;
+    top: -2px !important;
+    right: -2px !important;
+  }
+}
+
+
+
+/* ─────────── PRINT STYLES ─────────── */
+@media print {
+  .no-print, header, footer, #navbar-placeholder, #footer-placeholder { display: none !important; }
+  body { background: white; color: black; }
+}

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="FreshMart pricing — simple, transparent plans for every grocery delivery need. Choose from Basic, Pro, or Family." />
+    <title>Pricing — FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div id="navbar-placeholder"></div>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="relative overflow-hidden bg-gradient-to-br from-cream via-white to-brand-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 text-center reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span> No hidden fees
+          </span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+            Simple, <span class="text-brand-600">Transparent</span> Pricing
+          </h1>
+          <p class="mt-5 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Choose the plan that fits your lifestyle. From occasional shoppers to families who need it all — we've got you covered.
+          </p>
+        </div>
+      </section>
+
+      <!-- BILLING TOGGLE + PRICING CARDS -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <!-- Billing Toggle -->
+          <div class="flex items-center justify-center gap-4 mb-12 reveal">
+            <span id="monthly-label" class="text-sm font-semibold text-brand-600">Monthly</span>
+            <button id="billing-toggle" class="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-brand-100" aria-label="Toggle billing period">
+              <span id="toggle-knob" class="absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300"></span>
+            </button>
+            <span id="yearly-label" class="text-sm font-semibold text-gray-500 dark:text-gray-400">
+              Yearly
+              <span class="ml-1 px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-xs font-bold">Save 20%</span>
+            </span>
+          </div>
+
+          <!-- Pricing Cards Container -->
+          <div id="pricing-cards" class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"></div>
+        </div>
+      </section>
+
+      <!-- FEATURE COMPARISON TABLE -->
+      <section class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-5xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Compare plans</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Feature Comparison</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-400">See exactly what's included in each plan.</p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-soft overflow-hidden reveal">
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th class="text-left px-6 py-4 font-bold text-ink">Feature</th>
+                    <th class="text-center px-6 py-4 font-bold text-ink">Basic</th>
+                    <th class="text-center px-6 py-4 font-bold text-brand-600 bg-brand-50 dark:bg-brand-900/20">Pro</th>
+                    <th class="text-center px-6 py-4 font-bold text-ink">Family</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-100 dark:border-gray-700/50">
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Access to all products</td>
+                    <td class="text-center px-6 py-3.5"><span class="text-brand-600 font-bold">✓</span></td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10"><span class="text-brand-600 font-bold">✓</span></td>
+                    <td class="text-center px-6 py-3.5"><span class="text-brand-600 font-bold">✓</span></td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700/50">
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Delivery time</td>
+                    <td class="text-center px-6 py-3.5 text-gray-600 dark:text-gray-400">2-3 hours</td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10 text-brand-600 font-semibold">&lt; 1 hour</td>
+                    <td class="text-center px-6 py-3.5 text-brand-600 font-semibold">&lt; 1 hour</td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700/50">
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Free delivery</td>
+                    <td class="text-center px-6 py-3.5 text-gray-500 dark:text-gray-500">Over $40</td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10"><span class="text-brand-600 font-bold">✓</span> All orders</td>
+                    <td class="text-center px-6 py-3.5"><span class="text-brand-600 font-bold">✓</span> All orders</td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700/50">
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Order discount</td>
+                    <td class="text-center px-6 py-3.5 text-gray-500 dark:text-gray-500">—</td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10 text-brand-600 font-semibold">10% off</td>
+                    <td class="text-center px-6 py-3.5 text-brand-600 font-semibold">15% off</td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700/50">
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Exclusive member deals</td>
+                    <td class="text-center px-6 py-3.5 text-gray-500 dark:text-gray-500">—</td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10"><span class="text-brand-600 font-bold">✓</span></td>
+                    <td class="text-center px-6 py-3.5"><span class="text-brand-600 font-bold">✓</span></td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700/50">
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Free meal kits monthly</td>
+                    <td class="text-center px-6 py-3.5 text-gray-500 dark:text-gray-500">—</td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10 text-gray-500 dark:text-gray-500">—</td>
+                    <td class="text-center px-6 py-3.5"><span class="text-brand-600 font-bold">✓</span> 2 kits</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-3.5 text-gray-700 dark:text-gray-300">Dedicated account manager</td>
+                    <td class="text-center px-6 py-3.5 text-gray-500 dark:text-gray-500">—</td>
+                    <td class="text-center px-6 py-3.5 bg-brand-50/50 dark:bg-brand-900/10 text-gray-500 dark:text-gray-500">—</td>
+                    <td class="text-center px-6 py-3.5"><span class="text-brand-600 font-bold">✓</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING FAQ -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Pricing FAQ</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Questions About Pricing</h2>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl overflow-hidden reveal">
+              <button class="w-full flex items-center justify-between px-6 py-4 text-left" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+                <span class="font-semibold text-ink">Can I switch plans at any time?</span>
+                <svg class="faq-icon w-5 h-5 text-brand-600 transition-transform duration-300 shrink-0 ml-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer px-6 pb-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Yes! You can upgrade or downgrade your plan at any time from your account settings. Changes take effect immediately, and we'll prorate any payments accordingly.</p>
+              </div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl overflow-hidden reveal">
+              <button class="w-full flex items-center justify-between px-6 py-4 text-left" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+                <span class="font-semibold text-ink">Is there a free trial for Pro or Family?</span>
+                <svg class="faq-icon w-5 h-5 text-brand-600 transition-transform duration-300 shrink-0 ml-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer px-6 pb-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Pro members get a 14-day free trial before the first charge. Family plan includes a 7-day trial. You can cancel anytime during the trial period with no charge.</p>
+              </div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl overflow-hidden reveal">
+              <button class="w-full flex items-center justify-between px-6 py-4 text-left" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+                <span class="font-semibold text-ink">What payment methods do you accept?</span>
+                <svg class="faq-icon w-5 h-5 text-brand-600 transition-transform duration-300 shrink-0 ml-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer px-6 pb-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">We accept all major credit and debit cards, Apple Pay, Google Pay, and PayPal. Paid plan members can set up recurring billing for hassle-free renewals.</p>
+              </div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl overflow-hidden reveal">
+              <button class="w-full flex items-center justify-between px-6 py-4 text-left" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+                <span class="font-semibold text-ink">Can I cancel my subscription?</span>
+                <svg class="faq-icon w-5 h-5 text-brand-600 transition-transform duration-300 shrink-0 ml-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer px-6 pb-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Absolutely. Cancel anytime from your account settings — no questions asked, no cancellation fees. You'll retain your plan benefits until the end of your current billing period.</p>
+              </div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl overflow-hidden reveal">
+              <button class="w-full flex items-center justify-between px-6 py-4 text-left" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+                <span class="font-semibold text-ink">How much can I save with the yearly plan?</span>
+                <svg class="faq-icon w-5 h-5 text-brand-600 transition-transform duration-300 shrink-0 ml-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer px-6 pb-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">Yearly billing gives you a 20% discount compared to paying monthly. For the Pro plan, that's saving $24 per year. For the Family plan, you save $48 per year — that's like getting almost 3 months free!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA SECTION -->
+      <section class="reveal">
+        <div class="max-w-7xl mx-auto px-4 pb-16">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white p-8 md:p-12 text-center">
+            <div class="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
+            <div class="relative">
+              <h3 class="text-3xl md:text-4xl font-extrabold">Start fresh today</h3>
+              <p class="mt-3 text-white/90 max-w-xl mx-auto">Join over 12,000 happy customers who enjoy farm-fresh groceries delivered daily. No commitment, no hassle.</p>
+              <div class="mt-6 flex flex-wrap justify-center gap-3">
+                <a href="signup.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-brand-700 font-bold shadow-soft transition btn-pop">
+                  Get Started Free
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 hover:bg-white/10 font-semibold transition btn-pop">
+                  Talk to Sales
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+    <script>
+      (function() {
+        let isYearly = false;
+
+        function renderPricingCards() {
+          const container = document.getElementById('pricing-cards');
+          if (!container || !window.FreshMartData) return;
+
+          const plans = FreshMartData.PRICING_PLANS;
+          container.innerHTML = '';
+
+          plans.forEach(function(plan) {
+            let displayPrice, period;
+            if (plan.price === 0) {
+              displayPrice = '$0';
+              period = 'forever';
+            } else if (isYearly) {
+              const yearlyPrice = (plan.price * 12 * 0.8).toFixed(2);
+              displayPrice = '$' + yearlyPrice;
+              period = '/year';
+            } else {
+              displayPrice = '$' + plan.price.toFixed(2);
+              period = '/' + plan.period;
+            }
+
+            const isPopular = plan.popular;
+            const cardBg = isPopular
+              ? 'bg-gradient-to-b from-brand-50 to-white dark:from-brand-900/30 dark:to-gray-900 border-2 border-brand-500'
+              : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700';
+
+            let featuresHtml = plan.features.map(function(f) {
+              if (f.included) {
+                return '<li class="flex items-center gap-3"><span class="grid place-items-center w-5 h-5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 text-xs font-bold shrink-0">✓</span><span class="text-sm text-gray-700 dark:text-gray-300">' + f.text + '</span></li>';
+              } else {
+                return '<li class="flex items-center gap-3"><span class="grid place-items-center w-5 h-5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-400 text-xs font-bold shrink-0">✕</span><span class="text-sm text-gray-400 dark:text-gray-500">' + f.text + '</span></li>';
+              }
+            }).join('');
+
+            const cardHtml = '<div class="pricing-card relative rounded-3xl p-8 ' + cardBg + ' ' + (isPopular ? 'shadow-soft scale-[1.02] md:scale-105 z-10' : 'shadow-sm') + ' reveal">' +
+              (isPopular ? '<div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-brand-600 text-white text-xs font-bold shadow-soft">Most Popular</div>' : '') +
+              '<div class="text-center">' +
+                '<h3 class="text-xl font-bold text-ink">' + plan.name + '</h3>' +
+                '<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">' + plan.description + '</p>' +
+                '<div class="mt-6">' +
+                  '<span class="text-4xl font-extrabold text-ink">' + displayPrice + '</span>' +
+                  '<span class="text-sm text-gray-500 dark:text-gray-400">' + period + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<ul class="mt-8 space-y-3">' + featuresHtml + '</ul>' +
+              '<div class="mt-8">' +
+                '<button class="w-full py-3 rounded-full font-semibold transition btn-pop ' +
+                  (isPopular
+                    ? 'bg-brand-600 hover:bg-brand-700 text-white shadow-soft'
+                    : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-ink') +
+                  '">' + plan.cta + '</button>' +
+              '</div>' +
+            '</div>';
+
+            container.insertAdjacentHTML('beforeend', cardHtml);
+          });
+        }
+
+        function updateToggle() {
+          const toggle = document.getElementById('billing-toggle');
+          const knob = document.getElementById('toggle-knob');
+          const monthlyLabel = document.getElementById('monthly-label');
+          const yearlyLabel = document.getElementById('yearly-label');
+
+          if (isYearly) {
+            toggle.classList.remove('bg-gray-300', 'dark:bg-gray-600');
+            toggle.classList.add('bg-brand-600');
+            knob.style.transform = 'translateX(28px)';
+            monthlyLabel.classList.remove('text-brand-600');
+            monthlyLabel.classList.add('text-gray-500', 'dark:text-gray-400');
+            yearlyLabel.classList.remove('text-gray-500', 'dark:text-gray-400');
+            yearlyLabel.classList.add('text-brand-600');
+          } else {
+            toggle.classList.add('bg-gray-300', 'dark:bg-gray-600');
+            toggle.classList.remove('bg-brand-600');
+            knob.style.transform = 'translateX(0)';
+            monthlyLabel.classList.add('text-brand-600');
+            monthlyLabel.classList.remove('text-gray-500', 'dark:text-gray-400');
+            yearlyLabel.classList.add('text-gray-500', 'dark:text-gray-400');
+            yearlyLabel.classList.remove('text-brand-600');
+          }
+        }
+
+        renderPricingCards();
+        updateToggle();
+
+        document.getElementById('billing-toggle').addEventListener('click', function() {
+          isYearly = !isYearly;
+          updateToggle();
+          renderPricingCards();
+        });
+      })();
+    </script>
+  </body>
+</html>

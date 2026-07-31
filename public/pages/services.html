@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="Browse all FreshMart products — fresh produce, dairy, bakery, beverages, snacks, and pantry staples from local farms." />
+    <title>All Products — FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div id="navbar-placeholder"></div>
+
+    <main id="top">
+
+      <!-- HERO -->
+      <section class="relative overflow-hidden bg-gradient-to-br from-cream via-white to-brand-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+        <div class="absolute top-0 left-0 w-80 h-80 bg-brand-200/20 dark:bg-brand-600/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-200/15 dark:bg-amber-600/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
+        <div class="relative max-w-7xl mx-auto px-4 py-16 md:py-24 text-center">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-5 reveal">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span> Fresh from local farms
+          </span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight reveal">
+            Our <span class="text-brand-600">Products</span>
+          </h1>
+          <p class="mt-5 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto reveal">
+            Hand-picked produce, quality dairy, fresh-baked goods and pantry staples — all sourced from local farms and delivered fresh to your door.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3 reveal">
+            <a href="#products-section" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-soft transition btn-pop">
+              Browse Products
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEARCH & FILTERS -->
+      <section id="products-section" class="sticky top-16 z-30 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <div class="relative w-full md:w-80">
+              <input id="products-search" type="search" placeholder="Search products..."
+                class="w-full pl-10 pr-4 py-2.5 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:bg-white dark:focus:bg-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none text-sm transition text-gray-900 dark:text-gray-100" />
+              <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <div class="flex flex-wrap gap-2" id="category-filters">
+              <button data-cat="all" class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold bg-brand-600 text-white transition">All</button>
+              <button data-cat="produce" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brand-100 dark:hover:bg-brand-900/40 transition">Produce</button>
+              <button data-cat="dairy" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brand-100 dark:hover:bg-brand-900/40 transition">Dairy</button>
+              <button data-cat="bakery" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brand-100 dark:hover:bg-brand-900/40 transition">Bakery</button>
+              <button data-cat="beverages" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brand-100 dark:hover:bg-brand-900/40 transition">Beverages</button>
+              <button data-cat="snacks" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brand-100 dark:hover:bg-brand-900/40 transition">Snacks</button>
+              <button data-cat="pantry" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brand-100 dark:hover:bg-brand-900/40 transition">Pantry</button>
+            </div>
+            <div class="ml-auto text-sm text-gray-500 dark:text-gray-400" id="product-count"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS GRID -->
+      <section class="py-12 md:py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div id="products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+          <p id="no-results" class="hidden text-center text-gray-500 dark:text-gray-400 mt-12">
+            <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-400 mb-3 mx-auto block">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            No products match your search. Try a different term or category.
+          </p>
+        </div>
+      </section>
+
+      <!-- WHY US -->
+      <section class="py-12 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+          <div class="flex items-center gap-4 bg-white dark:bg-gray-900 rounded-2xl p-5 reveal">
+            <div class="grid place-items-center w-14 h-14 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div><div class="font-bold">100% Fresh Guarantee</div><div class="text-sm text-gray-500 dark:text-gray-400">Not satisfied? Full refund, no questions.</div></div>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-gray-900 rounded-2xl p-5 reveal">
+            <div class="grid place-items-center w-14 h-14 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <div><div class="font-bold">Free Delivery Over $40</div><div class="text-sm text-gray-500 dark:text-gray-400">Fast same-day delivery to your door.</div></div>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-gray-900 rounded-2xl p-5 reveal">
+            <div class="grid place-items-center w-14 h-14 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            </div>
+            <div><div class="font-bold">Easy 30-Day Returns</div><div class="text-sm text-gray-500 dark:text-gray-400">Return any item within 30 days.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-12 reveal">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white p-8 md:p-14 text-center">
+            <div class="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
+            <div class="relative">
+              <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">Ready to shop?</h3>
+              <p class="mt-3 text-white/90 max-w-xl mx-auto">Join 12,000+ happy customers enjoying farm-fresh groceries delivered daily. Start with free delivery on your first order over $40.</p>
+              <div class="mt-7 flex flex-wrap justify-center gap-3">
+                <a href="../../index.html" class="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-amber-300 hover:bg-amber-400 text-ink font-bold shadow-soft transition btn-pop">
+                  Order Now
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var products = FreshMartData.PRODUCTS;
+      var grid = document.getElementById('products-grid');
+      var noResults = document.getElementById('no-results');
+      var countEl = document.getElementById('product-count');
+      var searchInput = document.getElementById('products-search');
+      var currentCategory = 'all';
+      var currentSearch = '';
+
+      function stars(rating) {
+        var full = Math.round(rating);
+        return '\u2605'.repeat(full) + '\u2606'.repeat(5 - full);
+      }
+
+      function renderProducts(list) {
+        if (list.length === 0) {
+          grid.innerHTML = '';
+          noResults.classList.remove('hidden');
+          countEl.textContent = '0 products';
+          return;
+        }
+        noResults.classList.add('hidden');
+        countEl.textContent = list.length + ' product' + (list.length !== 1 ? 's' : '');
+
+        grid.innerHTML = list.map(function(p) {
+          var tagHTML = p.tag
+            ? '<span class="absolute top-3 left-3 z-10 px-2 py-1 rounded-full text-[11px] font-bold ' +
+              (p.tag.startsWith('-') ? 'bg-amber-400 text-ink' : p.tag === 'Best' ? 'bg-brand-600 text-white' : p.tag === 'New' ? 'bg-sky-500 text-white' : 'bg-white/90 text-ink dark:bg-gray-800/90') +
+              '">' + p.tag + '</span>' : '';
+          var oldPriceHTML = p.oldPrice
+            ? '<span class="text-sm text-gray-400 line-through">$' + p.oldPrice.toFixed(2) + '</span>' : '';
+
+          return '<article class="product-card relative bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden" data-id="' + p.id + '" data-name="' + p.name.toLowerCase() + '" data-category="' + p.category + '">' +
+            tagHTML +
+            '<div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">' +
+              '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" class="product-image w-full h-full object-cover" />' +
+            '</div>' +
+            '<div class="p-4">' +
+              '<div class="text-amber-400 text-sm">' + stars(p.rating) + ' <span class="text-gray-400">(' + p.reviews + ')</span></div>' +
+              '<h3 class="mt-1 font-semibold text-ink leading-snug">' + p.name + '</h3>' +
+              '<div class="mt-2 flex items-center gap-2">' +
+                '<span class="text-lg font-bold text-brand-700">$' + p.price.toFixed(2) + '</span>' +
+                oldPriceHTML +
+              '</div>' +
+              '<button class="add-to-cart btn-pop mt-3 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>' +
+                'Add to cart' +
+              '</button>' +
+            '</div>' +
+          '</article>';
+        }).join('');
+      }
+
+      function filterProducts() {
+        var filtered = products;
+        if (currentCategory !== 'all') {
+          filtered = filtered.filter(function(p) { return p.category === currentCategory; });
+        }
+        if (currentSearch) {
+          var q = currentSearch.toLowerCase();
+          filtered = filtered.filter(function(p) {
+            return p.name.toLowerCase().indexOf(q) !== -1 || p.category.indexOf(q) !== -1;
+          });
+        }
+        renderProducts(filtered);
+      }
+
+      // Category filter buttons
+      document.querySelectorAll('#category-filters .filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#category-filters .filter-btn').forEach(function(b) {
+            b.classList.remove('bg-brand-600', 'text-white');
+            b.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+          });
+          this.classList.add('bg-brand-600', 'text-white');
+          this.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+          currentCategory = this.getAttribute('data-cat');
+          filterProducts();
+        });
+      });
+
+      // Search
+      if (searchInput) {
+        var debounce;
+        searchInput.addEventListener('input', function() {
+          clearTimeout(debounce);
+          var val = this.value;
+          debounce = setTimeout(function() {
+            currentSearch = val;
+            filterProducts();
+          }, 200);
+        });
+      }
+
+      // Add to cart
+      grid.addEventListener('click', function(e) {
+        var btn = e.target.closest('.add-to-cart');
+        if (!btn) return;
+        var card = btn.closest('.product-card');
+        if (!card) return;
+        var productId = parseInt(card.getAttribute('data-id'), 10);
+        if (!productId) return;
+        FreshMartCart.addItem(productId);
+        var original = btn.innerHTML;
+        btn.innerHTML = '\u2713 Added';
+        btn.classList.add('bg-brand-700');
+        setTimeout(function() {
+          btn.innerHTML = original;
+          btn.classList.remove('bg-brand-700');
+        }, 900);
+      });
+
+      // Initial render
+      renderProducts(products);
+    });
+    </script>
+  </body>
+</html>

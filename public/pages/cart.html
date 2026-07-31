@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - FreshMart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+                    colors: {
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+                        cream: '#fefce8',
+                        ink: '#1f2937',
+                    },
+                    boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css">
+</head>
+<body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+
+        <!-- Cart Content -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="flex flex-col lg:flex-row gap-10">
+
+                <!-- Left: Cart Items -->
+                <div class="flex-1">
+
+                    <!-- Cart Items List -->
+                    <div id="cart-items" class="space-y-4"></div>
+
+                    <!-- Empty Cart State -->
+                    <div id="cart-empty" class="hidden text-center py-20">
+                        <div class="mx-auto w-28 h-28 mb-6 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
+                            <svg class="w-14 h-14 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">Your cart is empty</h2>
+                        <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-sm mx-auto">Looks like you haven't added any fresh goodies yet. Start browsing and fill your cart!</p>
+                        <a href="../../index.html" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                            Continue Shopping
+                        </a>
+                    </div>
+
+                    <!-- Checkout Form -->
+                    <div id="checkout-form" class="hidden mt-10">
+                        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Shipping Address
+                        </h2>
+                        <form id="shipping-form" class="space-y-5" novalidate>
+                            <div>
+                                <label for="ship-name" class="block text-sm font-medium mb-1">Full Name *</label>
+                                <input id="ship-name" type="text" required placeholder="John Doe"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="ship-address" class="block text-sm font-medium mb-1">Street Address *</label>
+                                <input id="ship-address" type="text" required placeholder="123 Fresh Street"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div>
+                                    <label for="ship-city" class="block text-sm font-medium mb-1">City *</label>
+                                    <input id="ship-city" type="text" required placeholder="New York"
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="ship-state" class="block text-sm font-medium mb-1">State *</label>
+                                    <input id="ship-state" type="text" required placeholder="NY"
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="ship-zip" class="block text-sm font-medium mb-1">Zip Code *</label>
+                                    <input id="ship-zip" type="text" required placeholder="10001"
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="ship-phone" class="block text-sm font-medium mb-1">Phone Number *</label>
+                                <input id="ship-phone" type="tel" required placeholder="(555) 123-4567"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="ship-notes" class="block text-sm font-medium mb-1">Delivery Notes</label>
+                                <textarea id="ship-notes" rows="3" placeholder="E.g. Leave at the door, ring doorbell..."
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-brand-600 focus:border-transparent outline-none transition-all resize-none"></textarea>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Order Success Message -->
+                    <div id="order-success" class="hidden mt-10 text-center py-16 bg-green-50 dark:bg-green-900/20 rounded-2xl border border-green-200 dark:border-green-800">
+                        <div class="mx-auto w-20 h-20 mb-5 bg-green-100 dark:bg-green-800/40 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">Order Placed Successfully!</h2>
+                        <p id="order-success-msg" class="text-gray-600 dark:text-gray-400 mb-6"></p>
+                        <a id="order-success-link" href="#" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            Track Your Order
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Order Summary Sidebar -->
+                <div id="order-summary" class="hidden lg:w-96">
+                    <div class="sticky top-24 bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                        <h2 class="text-xl font-bold mb-6">Order Summary</h2>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Subtotal</span>
+                                <span id="summary-subtotal" class="font-medium">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Delivery Fee</span>
+                                <span id="summary-delivery" class="font-medium">—</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Tax (8%)</span>
+                                <span id="summary-tax" class="font-medium">$0.00</span>
+                            </div>
+                            <hr class="border-gray-200 dark:border-gray-700 my-3">
+                            <div class="flex justify-between text-lg">
+                                <span class="font-bold">Total</span>
+                                <span id="summary-total" class="font-bold text-brand-600">$0.00</span>
+                            </div>
+                        </div>
+                        <button id="btn-place-order" type="button" class="mt-6 w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Place Order
+                        </button>
+                        <p id="form-error" class="hidden mt-3 text-sm text-red-500 text-center"></p>
+                        <div class="mt-5 text-center">
+                            <a href="../../index.html" class="text-sm text-brand-600 hover:underline font-medium">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Trust Badges -->
+        <section class="bg-gray-50 dark:bg-gray-800/50 border-y border-gray-200 dark:border-gray-700 py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Secure Checkout</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">SSL encrypted payment</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Free Delivery Over $40</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">On orders above $40</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Fresh Guarantee</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">100% fresh products</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-14 h-14 rounded-full bg-brand-100 flex items-center justify-center">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">Easy Returns</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Hassle-free returns</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">You Might Also Like</h2>
+            <div id="related-products" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <script>
+    (function () {
+
+        var cartItemsEl = document.getElementById('cart-items');
+        var cartEmptyEl = document.getElementById('cart-empty');
+        var orderSummaryEl = document.getElementById('order-summary');
+        var checkoutFormEl = document.getElementById('checkout-form');
+        var orderSuccessEl = document.getElementById('order-success');
+        var relatedEl = document.getElementById('related-products');
+        var summarySubtotal = document.getElementById('summary-subtotal');
+        var summaryDelivery = document.getElementById('summary-delivery');
+        var summaryTax = document.getElementById('summary-tax');
+        var summaryTotal = document.getElementById('summary-total');
+        var btnPlaceOrder = document.getElementById('btn-place-order');
+        var formError = document.getElementById('form-error');
+        var orderSuccessMsg = document.getElementById('order-success-msg');
+        var orderSuccessLink = document.getElementById('order-success-link');
+
+        function fmt(val) {
+            return '$' + Number(val).toFixed(2);
+        }
+
+        function getProduct(id) {
+            if (typeof FreshMartData !== 'undefined' && FreshMartData.PRODUCTS) {
+                return FreshMartData.PRODUCTS.find(function (p) { return p.id === id; });
+            }
+            return null;
+        }
+
+        function renderCart() {
+            var items = FreshMartCart.getCartItems();
+
+            if (!items || items.length === 0) {
+                cartItemsEl.innerHTML = '';
+                cartEmptyEl.classList.remove('hidden');
+                orderSummaryEl.classList.add('hidden');
+                checkoutFormEl.classList.add('hidden');
+                return;
+            }
+
+            cartEmptyEl.classList.add('hidden');
+            orderSummaryEl.classList.remove('hidden');
+            checkoutFormEl.classList.remove('hidden');
+            orderSuccessEl.classList.add('hidden');
+
+            var html = '';
+            items.forEach(function (item) {
+                var product = getProduct(item.id);
+                var name = product ? product.name : 'Product';
+                var image = product ? (product.img || product.image || '') : '';
+                var price = item.price || (product ? product.price : 0);
+                var qty = item.qty || 1;
+                var lineTotal = price * qty;
+
+                var imgHtml = '';
+                if (image) {
+                    imgHtml = '<img src="' + image + '" alt="' + name + '" class="w-20 h-20 md:w-24 md:h-24 object-cover rounded-xl">';
+                } else {
+                    imgHtml = '<div class="w-20 h-20 md:w-24 md:h-24 bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center"><svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>';
+                }
+
+                html += '<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 p-4 md:p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 transition-all" data-cart-id="' + item.id + '">';
+                html += imgHtml;
+                html += '<div class="flex-1 min-w-0">';
+                html += '<h3 class="font-semibold text-base md:text-lg truncate">' + name + '</h3>';
+                html += '<p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">' + fmt(price) + ' each</p>';
+                html += '</div>';
+                html += '<div class="flex items-center gap-3">';
+                html += '<button class="qty-minus w-9 h-9 rounded-lg border border-gray-300 dark:border-gray-600 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors font-bold text-lg" data-id="' + item.id + '" data-action="minus">−</button>';
+                html += '<span class="w-10 text-center font-semibold text-lg">' + qty + '</span>';
+                html += '<button class="qty-plus w-9 h-9 rounded-lg border border-gray-300 dark:border-gray-600 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors font-bold text-lg" data-id="' + item.id + '" data-action="plus">+</button>';
+                html += '</div>';
+                html += '<div class="text-right min-w-[80px]">';
+                html += '<p class="font-bold text-brand-600 text-lg">' + fmt(lineTotal) + '</p>';
+                html += '</div>';
+                html += '<button class="remove-btn w-9 h-9 rounded-full bg-red-100 dark:bg-red-900/30 text-red-500 hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors" data-id="' + item.id + '">';
+                html += '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+                html += '</button>';
+                html += '</div>';
+            });
+
+            cartItemsEl.innerHTML = html;
+            updateSummary(items);
+        }
+
+        function updateSummary(items) {
+            if (!items) {
+                items = FreshMartCart.getCartItems();
+            }
+
+            var subtotal = 0;
+            items.forEach(function (item) {
+                var product = getProduct(item.id);
+                var price = item.price || (product ? product.price : 0);
+                subtotal += price * (item.qty || 1);
+            });
+
+            var deliveryFee = subtotal >= 40 ? 0 : 4.99;
+            var tax = subtotal * 0.08;
+            var total = subtotal + deliveryFee + tax;
+
+            summarySubtotal.textContent = fmt(subtotal);
+            summaryDelivery.textContent = deliveryFee === 0 ? 'FREE' : fmt(deliveryFee);
+            if (deliveryFee === 0) {
+                summaryDelivery.classList.remove('text-red-500');
+                summaryDelivery.classList.add('text-green-600', 'dark:text-green-400');
+            } else {
+                summaryDelivery.classList.remove('text-green-600', 'dark:text-green-400');
+            }
+            summaryTax.textContent = fmt(tax);
+            summaryTotal.textContent = fmt(total);
+        }
+
+        // Event delegation for quantity and remove
+        cartItemsEl.addEventListener('click', function (e) {
+            var target = e.target.closest('button');
+            if (!target) return;
+
+            var id = target.getAttribute('data-id');
+            if (!id) return;
+
+            if (target.classList.contains('qty-plus')) {
+                var items = FreshMartCart.getCartItems();
+                var item = items.find(function (i) { return String(i.id) === String(id); });
+                var currentQty = item ? (item.qty || 1) : 1;
+                FreshMartCart.updateQty(id, currentQty + 1);
+                renderCart();
+            } else if (target.classList.contains('qty-minus')) {
+                var items2 = FreshMartCart.getCartItems();
+                var item2 = items2.find(function (i) { return String(i.id) === String(id); });
+                var currentQty2 = item2 ? (item2.qty || 1) : 1;
+                if (currentQty2 <= 1) {
+                    FreshMartCart.removeItem(id);
+                } else {
+                    FreshMartCart.updateQty(id, currentQty2 - 1);
+                }
+                renderCart();
+            } else if (target.classList.contains('remove-btn')) {
+                FreshMartCart.removeItem(id);
+                renderCart();
+            }
+        });
+
+        // Place Order
+        btnPlaceOrder.addEventListener('click', function () {
+            formError.classList.add('hidden');
+
+            var nameEl = document.getElementById('ship-name');
+            var addrEl = document.getElementById('ship-address');
+            var cityEl = document.getElementById('ship-city');
+            var stateEl = document.getElementById('ship-state');
+            var zipEl = document.getElementById('ship-zip');
+            var phoneEl = document.getElementById('ship-phone');
+
+            var fields = [
+                { el: nameEl, label: 'Full Name' },
+                { el: addrEl, label: 'Street Address' },
+                { el: cityEl, label: 'City' },
+                { el: stateEl, label: 'State' },
+                { el: zipEl, label: 'Zip Code' },
+                { el: phoneEl, label: 'Phone Number' }
+            ];
+
+            for (var i = 0; i < fields.length; i++) {
+                if (!fields[i].el.value.trim()) {
+                    formError.textContent = 'Please fill in ' + fields[i].label;
+                    formError.classList.remove('hidden');
+                    fields[i].el.focus();
+                    return;
+                }
+            }
+
+            var notes = document.getElementById('ship-notes').value.trim();
+            var address = nameEl.value.trim() + ', ' + addrEl.value.trim() + ', ' + cityEl.value.trim() + ', ' + stateEl.value.trim() + ' ' + zipEl.value.trim();
+            if (notes) {
+                address += ' | Notes: ' + notes;
+            }
+
+            var result = FreshMartCart.placeOrder(address);
+
+            if (result && result.id) {
+                cartItemsEl.innerHTML = '';
+                cartEmptyEl.classList.add('hidden');
+                orderSummaryEl.classList.add('hidden');
+                checkoutFormEl.classList.add('hidden');
+                orderSuccessEl.classList.remove('hidden');
+                orderSuccessMsg.textContent = 'Order placed! Order ID: ' + result.id;
+                orderSuccessLink.href = 'order-tracking.html?id=' + result.id;
+            } else {
+                formError.textContent = 'Something went wrong. Please try again.';
+                formError.classList.remove('hidden');
+            }
+        });
+
+        // Related Products
+        function renderRelated() {
+            if (typeof FreshMartData === 'undefined' || !FreshMartData.PRODUCTS) return;
+
+            var all = FreshMartData.PRODUCTS.slice();
+            // Shuffle
+            for (var i = all.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var tmp = all[i];
+                all[i] = all[j];
+                all[j] = tmp;
+            }
+
+            var four = all.slice(0, 4);
+            var html = '';
+            four.forEach(function (p) {
+                var imgSrc = p.img || p.image || '';
+                html += '<div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">';
+                html += '<div class="relative overflow-hidden">';
+                if (imgSrc) {
+                    html += '<img src="' + imgSrc + '" alt="' + p.name + '" class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition-transform duration-500">';
+                } else {
+                    html += '<div class="w-full h-40 md:h-48 bg-gray-100 dark:bg-gray-700 flex items-center justify-center"><svg class="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>';
+                }
+                html += '</div>';
+                html += '<div class="p-4">';
+                html += '<h4 class="font-semibold text-sm md:text-base truncate mb-1">' + p.name + '</h4>';
+                html += '<p class="text-brand-600 font-bold mb-3">' + fmt(p.price) + '</p>';
+                html += '<button class="related-add-btn w-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-all duration-300" data-id="' + p.id + '" data-price="' + p.price + '">Add to Cart</button>';
+                html += '</div>';
+                html += '</div>';
+            });
+
+            relatedEl.innerHTML = html;
+        }
+
+        relatedEl.addEventListener('click', function (e) {
+            var btn = e.target.closest('.related-add-btn');
+            if (!btn) return;
+            var id = btn.getAttribute('data-id');
+            FreshMartCart.addItem(id, 1);
+            renderCart();
+            btn.textContent = 'Added!';
+            btn.classList.add('bg-green-600');
+            setTimeout(function () {
+                btn.textContent = 'Add to Cart';
+                btn.classList.remove('bg-green-600');
+            }, 1200);
+        });
+
+        // Sync navbar cart count on update
+        FreshMartCart.onUpdate(function () {
+            if (typeof updateNavbarCartCount === 'function') {
+                updateNavbarCartCount();
+            }
+        });
+
+        // Initial render
+        renderCart();
+        renderRelated();
+
+    })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="FreshMart FAQ — Find answers to the most common questions about ordering, delivery, returns, and more." />
+    <title>FAQ — Frequently Asked Questions | FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div id="navbar-placeholder"></div>
+
+    <main id="top">
+
+      <!-- HERO -->
+      <section class="relative overflow-hidden bg-gradient-to-br from-cream via-white to-brand-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+        <div class="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-4">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span> Help Center
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold">Frequently Asked Questions</h1>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Find quick answers to common questions about FreshMart. Can't find what you need? Reach out to our support team.
+            </p>
+          </div>
+        </div>
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-200/30 dark:bg-brand-700/10 blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-amber-200/30 dark:bg-amber-600/10 blur-3xl"></div>
+      </section>
+
+      <!-- POPULAR TOPICS -->
+      <section class="py-12 md:py-16 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-5xl mx-auto px-4">
+          <h2 class="text-xl font-bold mb-6 text-center reveal">Popular Topics</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl p-5 text-center hover:shadow-soft transition cursor-pointer topic-card" data-category="orders">
+              <div class="w-10 h-10 mx-auto mb-2 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1m-4 0a1 1 0 100-2 1 1 0 000 2zm10 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
+              </div>
+              <div class="font-semibold text-sm">Delivery</div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl p-5 text-center hover:shadow-soft transition cursor-pointer topic-card" data-category="account">
+              <div class="w-10 h-10 mx-auto mb-2 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </div>
+              <div class="font-semibold text-sm">My Account</div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl p-5 text-center hover:shadow-soft transition cursor-pointer topic-card" data-category="products">
+              <div class="w-10 h-10 mx-auto mb-2 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 01-9-9c0-4.97 3.582-9 8-9 4.97 0 9 4.03 9 9 0 2.12-.74 4.07-1.97 5.61L12 21z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21V11"/></svg>
+              </div>
+              <div class="font-semibold text-sm">Products</div>
+            </div>
+            <div class="bg-cream dark:bg-gray-800 rounded-2xl p-5 text-center hover:shadow-soft transition cursor-pointer topic-card" data-category="returns">
+              <div class="w-10 h-10 mx-auto mb-2 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              </div>
+              <div class="font-semibold text-sm">Returns</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ FILTERS + ACCORDION -->
+      <section class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4">
+
+          <!-- Category Filter Buttons -->
+          <div class="flex flex-wrap gap-2 justify-center mb-10 reveal" id="faq-filters">
+            <button data-filter="all" class="faq-filter-btn px-5 py-2 rounded-full bg-brand-600 text-white font-semibold text-sm transition btn-pop">All</button>
+            <button data-filter="orders" class="faq-filter-btn px-5 py-2 rounded-full bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-600 hover:text-brand-700 transition btn-pop">Orders &amp; Delivery</button>
+            <button data-filter="account" class="faq-filter-btn px-5 py-2 rounded-full bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-600 hover:text-brand-700 transition btn-pop">Account &amp; Billing</button>
+            <button data-filter="products" class="faq-filter-btn px-5 py-2 rounded-full bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-600 hover:text-brand-700 transition btn-pop">Products &amp; Quality</button>
+            <button data-filter="returns" class="faq-filter-btn px-5 py-2 rounded-full bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-600 hover:text-brand-700 transition btn-pop">Returns &amp; Refunds</button>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div id="faq-list" class="space-y-3 reveal">
+            <!-- Items rendered by inline script -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- STILL HAVE QUESTIONS -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-3xl mx-auto px-4 text-center reveal">
+          <div class="bg-cream dark:bg-gray-800 rounded-3xl p-10 md:p-14 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-brand-100 dark:bg-brand-900/20 blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-amber-100 dark:bg-amber-900/20 blur-2xl"></div>
+            <div class="relative">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-extrabold mb-3">Still have questions?</h2>
+              <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto mb-7">
+                Our friendly support team is here to help. Reach out anytime and we'll get back to you within a few hours.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="#" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-soft transition btn-pop">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  Contact Us
+                </a>
+                <a href="mailto:support@freshmart.com" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 hover:border-brand-600 hover:text-brand-700 font-semibold transition btn-pop">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Email Support
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <!-- FAQ Page Inline Script -->
+    <script>
+    (function () {
+      'use strict';
+
+      var additionalFaqs = [
+        { q: 'Can I change my delivery address after placing an order?', a: 'Yes, you can change your delivery address within 15 minutes of placing an order, as long as the order hasn\'t been picked up by our delivery partner. Go to "My Orders" in your account, select the order, and tap "Edit Delivery Address." After the 15-minute window, please contact support for assistance.', category: 'orders' },
+        { q: 'How do I upgrade to FreshMart Pro?', a: 'Navigate to Account Settings > Membership and select "Upgrade to Pro." You\'ll be charged $9.99/month and your benefits — including priority delivery and 10% off every order — activate immediately.', category: 'account' },
+        { q: 'Are your products certified organic?', a: 'We carry a wide range of certified organic products, clearly labeled with the USDA Organic seal. Our organic sourcing partners are audited annually. You can filter by "Organic" in any category to see available options.', category: 'products' },
+        { q: 'What is your refund policy for perishable items?', a: 'Perishable items can be reported for quality issues within 24 hours of delivery. Contact us with a photo of the item and we\'ll issue a full refund or send a replacement at no charge — no questions asked.', category: 'returns' },
+        { q: 'How do I set up recurring weekly orders?', a: 'Add items to your cart, then toggle the "Make this a recurring order" option at checkout. Choose your preferred frequency (weekly, bi-weekly, or monthly) and delivery day. You can modify or pause recurring orders anytime from your dashboard.', category: 'orders' }
+      ];
+
+      // Merge data.js FAQs (category default) with additional ones
+      var allFaqs = [];
+      if (typeof FreshMartData !== 'undefined' && FreshMartData.FAQS) {
+        FreshMartData.FAQS.forEach(function (faq) {
+          allFaqs.push({ q: faq.q, a: faq.a, category: 'general' });
+        });
+      }
+      allFaqs = allFaqs.concat(additionalFaqs);
+
+      var faqList = document.getElementById('faq-list');
+      var currentFilter = 'all';
+
+      function renderFaqs(filter) {
+        faqList.innerHTML = '';
+        var filtered = filter === 'all' ? allFaqs : allFaqs.filter(function (f) { return f.category === filter; });
+
+        if (filtered.length === 0) {
+          faqList.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400 py-8">No questions found in this category.</p>';
+          return;
+        }
+
+        filtered.forEach(function (faq, i) {
+          var item = document.createElement('div');
+          item.className = 'bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700';
+          item.setAttribute('data-category', faq.category);
+          item.innerHTML =
+            '<button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold gap-4" aria-expanded="false">' +
+              '<span>' + faq.q + '</span>' +
+              '<span class="faq-icon grid place-items-center w-8 h-8 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 shrink-0 transition-transform duration-300">+</span>' +
+            '</button>' +
+            '<div class="faq-answer px-5 pb-5">' +
+              '<p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">' + faq.a + '</p>' +
+            '</div>';
+          faqList.appendChild(item);
+        });
+      }
+
+      // Initial render
+      renderFaqs('all');
+
+      // Accordion toggle
+      faqList.addEventListener('click', function (e) {
+        var toggle = e.target.closest('.faq-toggle');
+        if (!toggle) return;
+        var answer = toggle.nextElementSibling;
+        var icon = toggle.querySelector('.faq-icon');
+        var isOpen = answer.classList.contains('open');
+
+        // Close all others
+        document.querySelectorAll('.faq-answer.open').forEach(function (a) {
+          a.classList.remove('open');
+          a.previousElementSibling.querySelector('.faq-icon').textContent = '+';
+          a.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+          a.previousElementSibling.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          answer.classList.add('open');
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(180deg)';
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      // Category filter buttons
+      var filterContainer = document.getElementById('faq-filters');
+      filterContainer.addEventListener('click', function (e) {
+        var btn = e.target.closest('.faq-filter-btn');
+        if (!btn) return;
+        var filter = btn.getAttribute('data-filter');
+        currentFilter = filter;
+
+        // Update active styles
+        filterContainer.querySelectorAll('.faq-filter-btn').forEach(function (b) {
+          b.className = 'faq-filter-btn px-5 py-2 rounded-full bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-600 hover:text-brand-700 transition btn-pop';
+        });
+        btn.className = 'faq-filter-btn px-5 py-2 rounded-full bg-brand-600 text-white font-semibold text-sm transition btn-pop';
+
+        renderFaqs(filter);
+      });
+
+      // Topic cards also filter
+      document.querySelectorAll('.topic-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          var cat = card.getAttribute('data-category');
+          currentFilter = cat;
+
+          filterContainer.querySelectorAll('.faq-filter-btn').forEach(function (b) {
+            var isActive = b.getAttribute('data-filter') === cat;
+            b.className = isActive
+              ? 'faq-filter-btn px-5 py-2 rounded-full bg-brand-600 text-white font-semibold text-sm transition btn-pop'
+              : 'faq-filter-btn px-5 py-2 rounded-full bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold text-sm border border-gray-200 dark:border-gray-700 hover:border-brand-600 hover:text-brand-700 transition btn-pop';
+          });
+
+          renderFaqs(cat);
+
+          document.getElementById('faq-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+    </script>
+
+  </body>
+</html>

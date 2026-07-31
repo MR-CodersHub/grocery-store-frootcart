@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="Browse FreshMart categories — fresh produce, dairy, bakery, beverages, snacks and pantry staples delivered to your door." />
+    <title>Category — FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div id="navbar-placeholder"></div>
+
+    <main id="top">
+
+      <!-- ════════════════════════════════════════════
+           SECTION 1 — DYNAMIC CATEGORY HERO
+           ════════════════════════════════════════════ -->
+      <section id="category-hero" class="relative overflow-hidden bg-gradient-to-br from-cream via-white to-brand-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-200/20 dark:bg-brand-600/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-amber-200/20 dark:bg-amber-600/10 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3"></div>
+        <div class="relative max-w-7xl mx-auto px-4 py-16 md:py-24">
+          <div class="reveal">
+            <div class="flex items-center gap-3 mb-4">
+              <a href="../../index.html" class="text-brand-600 hover:text-brand-700 text-sm font-semibold transition">Home</a>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><polyline points="9 18 15 12 9 6"/></svg>
+              <span id="breadcrumb-category" class="text-sm text-gray-500 dark:text-gray-400">Category</span>
+            </div>
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-5">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span> Browse Category
+            </span>
+            <h1 id="category-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+              All Products
+            </h1>
+            <p id="category-description" class="mt-5 text-lg text-gray-600 dark:text-gray-400 max-w-lg">
+              Discover our carefully curated selection of farm-fresh groceries delivered straight to your door.
+            </p>
+            <div class="mt-6 flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+              <div class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-600"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                <span><strong id="hero-product-count" class="text-ink">0</strong> products available</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-600"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+                <span>Fresh guarantee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 2 — SORT & INFO BAR
+           ════════════════════════════════════════════ -->
+      <section class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Showing <strong id="showing-count" class="text-ink">0</strong> products
+          </p>
+          <div class="flex items-center gap-3">
+            <label for="sort-select" class="text-sm font-medium text-gray-600 dark:text-gray-400">Sort by:</label>
+            <select id="sort-select" class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-ink focus:outline-none focus:ring-2 focus:ring-brand-500 transition cursor-pointer">
+              <option value="default">Featured</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="name">Name: A → Z</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 3 — PRODUCTS GRID
+           ════════════════════════════════════════════ -->
+      <section class="py-12 md:py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div id="category-products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+          <div id="no-products-found" class="hidden text-center py-20">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-gray-300 dark:text-gray-600 mb-6">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+            <h3 class="text-xl font-bold text-ink mb-2">No products found</h3>
+            <p class="text-gray-500 dark:text-gray-400 max-w-md mx-auto">We couldn't find any products in this category. Try browsing another category or view all our products.</p>
+            <a href="../../index.html#categories" class="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-soft transition btn-pop">
+              Browse Categories
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 4 — CATEGORY NAVIGATION
+           ════════════════════════════════════════════ -->
+      <section class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Explore more</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Shop by Category</h2>
+          </div>
+          <div id="category-nav-grid" class="grid grid-cols-2 md:grid-cols-3 gap-5">
+            <!-- Rendered by inline script -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 5 — CTA / CAN'T FIND WHAT YOU NEED
+           ════════════════════════════════════════════ -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 reveal">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white p-8 md:p-14">
+            <div class="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
+            <div class="relative grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">Can't find what you're looking for?</h3>
+                <p class="mt-4 text-white/85 max-w-md">Browse our full collection of farm-fresh groceries — from organic produce to artisan bakery and everything in between.</p>
+              </div>
+              <div class="flex flex-wrap gap-4 md:justify-end">
+                <a href="../../index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-brand-700 font-bold shadow-soft transition btn-pop">
+                  View All Products
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 hover:border-white hover:text-white font-semibold transition btn-pop">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <!-- ════════════════════════════════════════════
+         CATEGORY PAGE LOGIC
+         ════════════════════════════════════════════ -->
+    <script>
+      (() => {
+        'use strict';
+
+        const { PRODUCTS } = FreshMartData;
+        const $ = (sel, root) => (root || document).querySelector(sel);
+
+        // ─── Category metadata ───
+        const CATEGORY_MAP = {
+          produce:    { name: 'Fresh Produce',  description: 'Hand-picked fruits, vegetables and greens sourced daily from local farms within 100 miles.',    icon: 'leaf' },
+          dairy:      { name: 'Dairy & Eggs',   description: 'Free-range eggs, grass-fed milk, creamy yogurts and artisan cheeses for every meal.',            icon: 'egg' },
+          bakery:     { name: 'Bakery',         description: 'Freshly baked breads, pastries and sweet treats from partner bakeries every morning.',            icon: 'bread' },
+          beverages:  { name: 'Beverages',      description: 'Cold-pressed juices, premium coffees, refreshing teas and artisan drinks.',                     icon: 'cup' },
+          snacks:     { name: 'Snacks',         description: 'Healthy munchies, trail mixes, chocolate bars and guilt-free snacking options.',                  icon: 'cookie' },
+          pantry:     { name: 'Pantry',         description: 'Stock up on grains, oils, sauces and all the everyday essentials your kitchen needs.',            icon: 'archive' }
+        };
+
+        const CATEGORY_NAV_ITEMS = [
+          { slug: 'produce',   name: 'Fresh Produce', img: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=80' },
+          { slug: 'dairy',     name: 'Dairy & Eggs',  img: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?w=400&q=80' },
+          { slug: 'bakery',    name: 'Bakery',        img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80' },
+          { slug: 'beverages', name: 'Beverages',     img: 'https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=400&q=80' },
+          { slug: 'snacks',    name: 'Snacks',        img: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&q=80' },
+          { slug: 'pantry',    name: 'Pantry',        img: 'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=400&q=80' }
+        ];
+
+        // ─── Read URL param ───
+        const params = new URLSearchParams(window.location.search);
+        const catParam = params.get('cat');
+        const isValidCategory = catParam && CATEGORY_MAP[catParam];
+
+        // ─── Stars helper ───
+        const stars = (rating) => {
+          const full = Math.round(rating);
+          return '★'.repeat(full) + '☆'.repeat(5 - full);
+        };
+
+        // ─── Product card HTML ───
+        const productCard = (p) => {
+          const oldPriceHTML = p.oldPrice
+            ? '<span class="text-sm text-gray-400 line-through">$' + p.oldPrice.toFixed(2) + '</span>'
+            : '';
+          const tagHTML = p.tag
+            ? '<span class="absolute top-3 left-3 z-10 px-2 py-1 rounded-full text-[11px] font-bold ' +
+              (p.tag.startsWith('-')
+                ? 'bg-amber-400 text-ink'
+                : p.tag === 'Best'
+                ? 'bg-brand-600 text-white'
+                : p.tag === 'New'
+                ? 'bg-sky-500 text-white'
+                : 'bg-white/90 text-ink dark:bg-gray-800/90') +
+              '">' + p.tag + '</span>'
+            : '';
+          return (
+            '<article class="product-card relative bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden" data-id="' + p.id + '" data-name="' + p.name.toLowerCase() + '" data-category="' + p.category + '">' +
+              tagHTML +
+              '<div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700">' +
+                '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" class="product-image w-full h-full object-cover" />' +
+              '</div>' +
+              '<div class="p-4">' +
+                '<div class="text-amber-400 text-sm" title="' + p.rating + ' / 5">' + stars(p.rating) + ' <span class="text-gray-400">(' + p.reviews + ')</span></div>' +
+                '<h3 class="mt-1 font-semibold text-ink leading-snug">' + p.name + '</h3>' +
+                '<div class="mt-2 flex items-center gap-2">' +
+                  '<span class="text-lg font-bold text-brand-700">$' + p.price.toFixed(2) + '</span>' +
+                  oldPriceHTML +
+                '</div>' +
+                '<button class="add-to-cart btn-pop mt-3 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition">' +
+                  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>' +
+                  'Add to cart' +
+                '</button>' +
+              '</div>' +
+            '</article>'
+          );
+        };
+
+        // ─── Get filtered products ───
+        const getFilteredProducts = () => {
+          if (!isValidCategory) return PRODUCTS.slice();
+          return PRODUCTS.filter((p) => p.category === catParam);
+        };
+
+        // ─── Sort products ───
+        const sortProducts = (products, sortValue) => {
+          const sorted = products.slice();
+          switch (sortValue) {
+            case 'price-asc':
+              sorted.sort((a, b) => a.price - b.price);
+              break;
+            case 'price-desc':
+              sorted.sort((a, b) => b.price - a.price);
+              break;
+            case 'rating':
+              sorted.sort((a, b) => b.rating - a.rating);
+              break;
+            case 'name':
+              sorted.sort((a, b) => a.name.localeCompare(b.name));
+              break;
+            default:
+              break;
+          }
+          return sorted;
+        };
+
+        // ─── Render products to grid ───
+        const grid = $('#category-products-grid');
+        const noProducts = $('#no-products-found');
+        let currentProducts = getFilteredProducts();
+
+        const renderProducts = (sortValue) => {
+          const sorted = sortProducts(currentProducts, sortValue || 'default');
+          if (sorted.length === 0) {
+            grid.innerHTML = '';
+            noProducts.classList.remove('hidden');
+          } else {
+            noProducts.classList.add('hidden');
+            grid.innerHTML = sorted.map(productCard).join('');
+          }
+          const count = sorted.length;
+          $('#showing-count').textContent = count;
+          $('#hero-product-count').textContent = count;
+        };
+
+        // ─── Update hero section ───
+        const titleEl = $('#category-title');
+        const descEl = $('#category-description');
+        const breadcrumb = $('#breadcrumb-category');
+        const pageTitle = document.querySelector('title');
+
+        if (isValidCategory) {
+          const meta = CATEGORY_MAP[catParam];
+          titleEl.textContent = meta.name;
+          descEl.textContent = meta.description;
+          breadcrumb.textContent = meta.name;
+          pageTitle.textContent = meta.name + ' — FreshMart';
+        } else {
+          titleEl.textContent = 'All Products';
+          descEl.textContent = 'Discover our carefully curated selection of farm-fresh groceries delivered straight to your door.';
+          breadcrumb.textContent = 'All Products';
+          pageTitle.textContent = 'All Products — FreshMart';
+        }
+
+        // ─── Initial render ───
+        renderProducts('default');
+
+        // ─── Sort dropdown ───
+        const sortSelect = $('#sort-select');
+        sortSelect.addEventListener('change', () => {
+          renderProducts(sortSelect.value);
+        });
+
+        // ─── Add to cart ───
+        grid.addEventListener('click', (e) => {
+          const btn = e.target.closest('.add-to-cart');
+          if (!btn) return;
+          const card = btn.closest('.product-card');
+          if (!card) return;
+          const productId = parseInt(card.dataset.id, 10);
+          if (!productId) return;
+
+          if (typeof FreshMartCart !== 'undefined') {
+            FreshMartCart.addItem(productId);
+          }
+
+          const original = btn.innerHTML;
+          btn.innerHTML = '✓ Added';
+          btn.classList.add('bg-brand-700');
+          setTimeout(() => {
+            btn.innerHTML = original;
+            btn.classList.remove('bg-brand-700');
+          }, 900);
+        });
+
+        // ─── Category navigation cards ───
+        const categoryNavGrid = $('#category-nav-grid');
+        categoryNavGrid.innerHTML = CATEGORY_NAV_ITEMS.map((cat) => {
+          const count = PRODUCTS.filter((p) => p.category === cat.slug).length;
+          const isActive = cat.slug === catParam;
+          return (
+            '<a href="category.html?cat=' + cat.slug + '" class="group relative aspect-square rounded-3xl overflow-hidden shadow-sm hover:shadow-soft transition reveal' + (isActive ? ' ring-4 ring-brand-500 ring-offset-2 dark:ring-offset-gray-800' : '') + '">' +
+              '<img src="' + cat.img + '" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="' + cat.name + '" />' +
+              '<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>' +
+              '<div class="absolute bottom-3 left-3 right-3 text-white">' +
+                '<div class="font-bold text-lg">' + cat.name + '</div>' +
+                '<div class="text-xs opacity-90">' + count + ' items</div>' +
+              '</div>' +
+              (isActive ? '<div class="absolute top-3 right-3 bg-brand-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">Current</div>' : '') +
+            '</a>'
+          );
+        }).join('');
+
+        // ─── Re-init scroll reveal for newly rendered elements ───
+        if (typeof window.initReveal === 'function') {
+          window.initReveal();
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="Your FreshMart dashboard — manage orders, favorites, subscriptions, and deliveries." />
+    <title>My Dashboard — FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div class="flex h-screen overflow-hidden">
+      <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 flex flex-col transition-transform duration-300 -translate-x-full lg:translate-x-0">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-700">
+          <a href="../../index.html" class="flex items-center gap-2" aria-label="FreshMart home">
+            <span class="grid place-items-center w-9 h-9 rounded-full bg-brand-600 text-white">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+            </span>
+            <span class="text-lg font-bold tracking-tight">Fresh<span class="text-brand-600">Mart</span></span>
+          </a>
+          <button id="sidebar-close" class="lg:hidden grid place-items-center w-8 h-8 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-1">
+          <a href="#" data-section="dashboard" class="sidebar-link active flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            My Dashboard
+          </a>
+          <a href="#" data-section="orders" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            My Orders
+          </a>
+          <a href="#" data-section="favorites" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+     stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>
+            Favorites
+          </a>
+          <a href="#" data-section="addresses" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+     stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+</svg> 
+            Delivery Addresses
+          </a>
+          <a href="#" data-section="subscriptions" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Subscriptions
+          </a>
+          <a href="#" data-section="settings" class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </a>
+        </nav>
+        <div class="border-t border-gray-100 dark:border-gray-700 p-4">
+          <a href="../../index.html" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Logout
+          </a>
+          <div class="flex items-center gap-3 mt-3 px-4 py-2">
+            <div class="w-9 h-9 rounded-full bg-pink-100 dark:bg-pink-900/30 grid place-items-center text-pink-600 dark:text-pink-400 font-bold text-sm">S</div>
+            <div class="text-sm">
+              <div class="font-semibold text-ink dark:text-gray-100">Sarah Johnson</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">sarah@example.com</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-20 hidden lg:hidden"></div>
+
+      <div class="flex-1 flex flex-col min-w-0">
+        <header class="sticky top-0 z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-700">
+          <div class="flex items-center gap-4 px-4 md:px-6 py-3">
+            <button id="sidebar-toggle" class="lg:hidden grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300" aria-label="Toggle sidebar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <div class="flex-1 max-w-md">
+              <div class="relative">
+                <input type="search" placeholder="Search products, orders..." id="user-search"
+                  class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:bg-white dark:focus:bg-gray-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none text-sm transition text-gray-900 dark:text-gray-100" />
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 ml-auto">
+              <button id="theme-toggle" class="grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300" aria-label="Toggle theme"></button>
+              <button class="relative grid place-items-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300" aria-label="Notifications">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500"></span>
+              </button>
+              <div class="relative">
+                <button id="profile-btn" class="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-expanded="false">
+                  <div class="w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/30 grid place-items-center text-pink-600 dark:text-pink-400 font-bold text-xs">S</div>
+                  <span class="hidden sm:inline text-sm font-medium text-gray-700 dark:text-gray-300">Sarah</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-700 py-2 z-50">
+                  <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 transition">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    My Profile
+                  </a>
+                  <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 transition">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    Settings
+                  </a>
+                  <div class="border-t border-gray-100 dark:border-gray-700 my-1"></div>
+                  <a href="../../index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 text-red-600 transition">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Logout
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+
+          <!-- ═══════════════ PANEL: DASHBOARD ═══════════════ -->
+          <div data-panel="dashboard">
+            <section>
+              <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">My Dashboard</h1>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Welcome, Sarah!</p>
+            </section>
+
+            <section class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="user-stats-grid"></section>
+
+            <section class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden mt-6">
+              <div class="flex items-center justify-between p-5 pb-3">
+                <h2 class="text-lg font-bold text-ink dark:text-white">Recent Orders</h2>
+                <a href="#" data-goto="orders" class="text-sm text-brand-600 hover:text-brand-700 font-semibold sidebar-goto">View All</a>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead><tr class="border-t border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
+                    <th class="text-left px-5 py-3 font-semibold">Order ID</th>
+                    <th class="text-left px-5 py-3 font-semibold">Items</th>
+                    <th class="text-left px-5 py-3 font-semibold">Total</th>
+                    <th class="text-left px-5 py-3 font-semibold">Status</th>
+                    <th class="text-left px-5 py-3 font-semibold">Date</th>
+                    <th class="text-left px-5 py-3 font-semibold"></th>
+                  </tr></thead>
+                  <tbody id="user-recent-orders"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-ink dark:text-white">Recommended For You</h2>
+                <a href="../../public/pages/products.html" class="text-sm text-brand-600 hover:text-brand-700 font-semibold">View All</a>
+              </div>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="user-recommended"></div>
+            </section>
+
+            <section class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h2 class="text-lg font-bold text-ink dark:text-white">Active Subscription</h2>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">FreshMart Pro — renewed Jul 20, 2026</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400">Active</span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center"><div class="text-lg font-bold text-brand-600">10%</div><div class="text-xs text-gray-500 dark:text-gray-400">Off every order</div></div>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center"><div class="text-lg font-bold text-brand-600">Free</div><div class="text-xs text-gray-500 dark:text-gray-400">Delivery</div></div>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center"><div class="text-lg font-bold text-brand-600">1hr</div><div class="text-xs text-gray-500 dark:text-gray-400">Priority delivery</div></div>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-4 py-3 text-center"><div class="text-lg font-bold text-brand-600">$9.99</div><div class="text-xs text-gray-500 dark:text-gray-400">Per month</div></div>
+              </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+                <h2 class="text-lg font-bold text-ink dark:text-white mb-4">Recent Activity</h2>
+                <div class="space-y-4" id="user-activity"></div>
+              </div>
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5">
+                <div class="flex items-center justify-between mb-4"><h2 class="text-lg font-bold text-ink dark:text-white">Reward Points</h2></div>
+                <div class="text-center py-6">
+                  <div class="text-4xl font-extrabold text-brand-600">2,450</div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Points earned this month</div>
+                  <div class="mt-4 flex justify-center gap-2">
+                    <button class="px-4 py-2 rounded-full bg-brand-600 text-white text-sm font-semibold hover:bg-brand-700 transition">Redeem Points</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-200 dark:border-gray-600 text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition">History</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ═══════════════ PANEL: ORDERS ═══════════════ -->
+          <div data-panel="orders" class="hidden">
+            <section class="flex items-center justify-between mb-4">
+              <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">My Orders</h1>
+              <span class="text-sm text-gray-500 dark:text-gray-400" id="user-order-count"></span>
+            </section>
+            <section class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead><tr class="border-t border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">
+                    <th class="text-left px-5 py-3 font-semibold">Order ID</th>
+                    <th class="text-left px-5 py-3 font-semibold">Items</th>
+                    <th class="text-left px-5 py-3 font-semibold">Total</th>
+                    <th class="text-left px-5 py-3 font-semibold">Status</th>
+                    <th class="text-left px-5 py-3 font-semibold">Date</th>
+                    <th class="text-left px-5 py-3 font-semibold">Action</th>
+                  </tr></thead>
+                  <tbody id="user-all-orders"></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <!-- ═══════════════ PANEL: FAVORITES ═══════════════ -->
+          <div data-panel="favorites" class="hidden">
+            <section class="flex items-center justify-between mb-4">
+              <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">Favorites</h1>
+              <span class="text-sm text-gray-500 dark:text-gray-400">18 items saved</span>
+            </section>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="user-favorites-grid"></div>
+          </div>
+
+          <!-- ═══════════════ PANEL: ADDRESSES ═══════════════ -->
+          <div data-panel="addresses" class="hidden">
+            <section class="flex items-center justify-between mb-4">
+              <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">Delivery Addresses</h1>
+              <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add New
+              </button>
+            </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="user-addresses-grid"></div>
+          </div>
+
+          <!-- ═══════════════ PANEL: SUBSCRIPTIONS ═══════════════ -->
+          <div data-panel="subscriptions" class="hidden">
+            <section class="mb-4">
+              <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">Subscriptions</h1>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Manage your active subscriptions and plans.</p>
+            </section>
+            <div class="space-y-4" id="user-subscriptions-list"></div>
+          </div>
+
+          <!-- ═══════════════ PANEL: SETTINGS ═══════════════ -->
+          <div data-panel="settings" class="hidden">
+            <section class="mb-4">
+              <h1 class="text-2xl md:text-3xl font-extrabold text-ink dark:text-white">Settings</h1>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Manage your profile and preferences.</p>
+            </section>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6">
+                <h2 class="text-lg font-bold text-ink dark:text-white mb-4">Profile</h2>
+                <div class="space-y-4">
+                  <div><label class="text-sm font-medium text-gray-700 dark:text-gray-300">Name</label><input type="text" value="Sarah Johnson" class="mt-1 w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm text-gray-900 dark:text-gray-100 outline-none focus:border-brand-500" /></div>
+                  <div><label class="text-sm font-medium text-gray-700 dark:text-gray-300">Email</label><input type="email" value="sarah@example.com" class="mt-1 w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm text-gray-900 dark:text-gray-100 outline-none focus:border-brand-500" /></div>
+                  <div><label class="text-sm font-medium text-gray-700 dark:text-gray-300">Phone</label><input type="tel" value="+1 (555) 123-4567" class="mt-1 w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm text-gray-900 dark:text-gray-100 outline-none focus:border-brand-500" /></div>
+                  <button class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition">Save Changes</button>
+                </div>
+              </div>
+              <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6">
+                <h2 class="text-lg font-bold text-ink dark:text-white mb-4">Preferences</h2>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between"><span class="text-sm text-gray-700 dark:text-gray-300">Email notifications</span><button class="w-11 h-6 rounded-full bg-brand-600 relative"><span class="absolute right-0.5 top-0.5 w-5 h-5 rounded-full bg-white transition"></span></button></div>
+                  <div class="flex items-center justify-between"><span class="text-sm text-gray-700 dark:text-gray-300">SMS order updates</span><button class="w-11 h-6 rounded-full bg-brand-600 relative"><span class="absolute right-0.5 top-0.5 w-5 h-5 rounded-full bg-white transition"></span></button></div>
+                  <div class="flex items-center justify-between"><span class="text-sm text-gray-700 dark:text-gray-300">Marketing emails</span><button class="w-11 h-6 rounded-full bg-gray-300 dark:bg-gray-600 relative"><span class="absolute left-0.5 top-0.5 w-5 h-5 rounded-full bg-white transition"></span></button></div>
+                  <div class="flex items-center justify-between"><span class="text-sm text-gray-700 dark:text-gray-300">Auto-reorder favorites</span><button class="w-11 h-6 rounded-full bg-gray-300 dark:bg-gray-600 relative"><span class="absolute left-0.5 top-0.5 w-5 h-5 rounded-full bg-white transition"></span></button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/theme.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var products = FreshMartData.PRODUCTS;
+      var orders = FreshMartCart.getOrders();
+      var pricingPlans = FreshMartData.PRICING_PLANS;
+
+      /* ── Sidebar toggle ── */
+      var sidebar = document.getElementById('sidebar');
+      var overlay = document.getElementById('sidebar-overlay');
+      document.getElementById('sidebar-toggle').addEventListener('click', function() { sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); });
+      document.getElementById('sidebar-close').addEventListener('click', function() { sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); });
+      overlay.addEventListener('click', function() { sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); });
+
+      /* ── Profile dropdown ── */
+      var profileBtn = document.getElementById('profile-btn');
+      var profileDrop = document.getElementById('profile-dropdown');
+      profileBtn.addEventListener('click', function(e) { e.stopPropagation(); profileDrop.classList.toggle('hidden'); });
+      document.addEventListener('click', function(e) { if (!profileDrop.contains(e.target) && e.target !== profileBtn) profileDrop.classList.add('hidden'); });
+
+      /* ── Section navigation ── */
+      function showSection(name) {
+        document.querySelectorAll('[data-panel]').forEach(function(p) { p.classList.add('hidden'); });
+        var target = document.querySelector('[data-panel="' + name + '"]');
+        if (target) target.classList.remove('hidden');
+        document.querySelectorAll('.sidebar-link').forEach(function(l) {
+          l.classList.remove('active');
+          l.classList.remove('bg-brand-50', 'dark:bg-brand-900/20', 'text-brand-700', 'dark:text-brand-400');
+          l.classList.add('text-gray-600', 'dark:text-gray-400');
+        });
+        var active = document.querySelector('.sidebar-link[data-section="' + name + '"]');
+        if (active) {
+          active.classList.add('active', 'bg-brand-50', 'dark:bg-brand-900/20', 'text-brand-700', 'dark:text-brand-400');
+          active.classList.remove('text-gray-600', 'dark:text-gray-400');
+        }
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+
+      document.querySelectorAll('.sidebar-link[data-section]').forEach(function(link) {
+        link.addEventListener('click', function(e) { e.preventDefault(); showSection(this.getAttribute('data-section')); });
+      });
+      document.querySelectorAll('.sidebar-goto').forEach(function(btn) {
+        btn.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); showSection(this.getAttribute('data-goto')); });
+      });
+
+      /* ── Stats ── */
+      var statsData = [
+        { label: 'Total Orders', value: Math.max(orders.length, 24).toString(), icon: '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>', color: 'bg-green-50 dark:bg-green-900/30 text-brand-600' },
+        { label: 'Favorites', value: '18', icon: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>', color: 'bg-pink-50 dark:bg-pink-900/30 text-pink-600' },
+        { label: 'Subscriptions', value: '1', icon: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>', color: 'bg-amber-50 dark:bg-amber-900/30 text-amber-600' },
+        { label: 'Reward Points', value: '2,450', icon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>', color: 'bg-purple-50 dark:bg-purple-900/30 text-purple-600' }
+      ];
+      document.getElementById('user-stats-grid').innerHTML = statsData.map(function(s) {
+        return '<div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5"><div class="flex items-center justify-between mb-3"><div class="w-11 h-11 rounded-xl grid place-items-center ' + s.color + '"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + s.icon + '</svg></div></div><div class="text-2xl font-bold text-ink dark:text-white">' + s.value + '</div><div class="text-sm text-gray-500 dark:text-gray-400">' + s.label + '</div></div>';
+      }).join('');
+
+      /* ── Orders ── */
+      var sampleOrders = orders.length > 0 ? orders : [
+        { id: 'ORD-1024', items: ['Organic Avocados', 'Fresh Strawberries', 'Sourdough Bread'], total: 64.20, status: 'Delivered', date: 'Jul 21, 2026' },
+        { id: 'ORD-1021', items: ['Free-Range Eggs', 'Greek Yogurt', 'Granola Mix'], total: 38.75, status: 'Delivered', date: 'Jul 18, 2026' },
+        { id: 'ORD-1018', items: ['Sourdough Bread', 'Heirloom Tomatoes', 'Crisp Honeycrisp Apples'], total: 52.30, status: 'Processing', date: 'Jul 15, 2026' },
+        { id: 'ORD-1015', items: ['Fresh Orange Juice', 'Mixed Nuts', 'Dark Chocolate Bar'], total: 28.99, status: 'Delivered', date: 'Jul 12, 2026' }
+      ];
+      var statusColor = { Delivered: 'bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400', Processing: 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400', Shipped: 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400', Cancelled: 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400', Pending: 'bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-400' };
+
+      function renderUserOrderRow(o) {
+        var itemsText = Array.isArray(o.items) ? o.items.join(', ') : (o.items || 'Multiple items');
+        return '<tr class="border-t border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"><td class="px-5 py-3 font-medium text-ink dark:text-white">#' + o.id + '</td><td class="px-5 py-3 max-w-[200px] truncate">' + itemsText + '</td><td class="px-5 py-3">$' + o.total.toFixed(2) + '</td><td class="px-5 py-3"><span class="px-2 py-1 rounded-full text-xs font-semibold ' + (statusColor[o.status] || 'bg-gray-50 text-gray-600') + '">' + o.status + '</span></td><td class="px-5 py-3 text-gray-500">' + o.date + '</td><td class="px-5 py-3"><button class="px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-600 text-xs font-semibold hover:bg-brand-100 transition">Reorder</button></td></tr>';
+      }
+      document.getElementById('user-recent-orders').innerHTML = sampleOrders.slice(0, 4).map(renderUserOrderRow).join('');
+      document.getElementById('user-order-count').textContent = sampleOrders.length + ' orders total';
+      document.getElementById('user-all-orders').innerHTML = sampleOrders.map(renderUserOrderRow).join('');
+
+      /* ── Recommended ── */
+      var recIds = [1, 7, 6, 14];
+      document.getElementById('user-recommended').innerHTML = recIds.map(function(id) {
+        var p = products.find(function(x) { return x.id === id; });
+        if (!p) return '';
+        return '<div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-soft transition"><div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700"><img src="' + p.img + '" alt="' + p.name + '" class="w-full h-full object-cover" loading="lazy" /></div><div class="p-3"><h3 class="font-semibold text-sm text-ink dark:text-white truncate">' + p.name + '</h3><div class="text-brand-600 font-bold text-sm mt-1">$' + p.price.toFixed(2) + '</div><button class="mt-2 w-full py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition btn-pop add-to-cart" data-id="' + p.id + '">Add to Cart</button></div></div>';
+      }).join('');
+
+      /* ── Favorites panel ── */
+      document.getElementById('user-favorites-grid').innerHTML = products.slice(0, 8).map(function(p) {
+        return '<div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-soft transition"><div class="aspect-square overflow-hidden bg-gray-50 dark:bg-gray-700 relative"><img src="' + p.img + '" alt="' + p.name + '" class="w-full h-full object-cover" loading="lazy" /><button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/90 dark:bg-gray-800/90 grid place-items-center text-red-500 hover:text-red-600 transition shadow-sm" title="Remove from favorites"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M19 14c1.5-2.5 3-5 3-7 0-3-2-5-5-5-1.5 0-3 .7-4 2-1-.3-2.5-.5-4-.5C6 3 4 5 4 8c0 2 1.5 4.5 3 7"/></svg></button></div><div class="p-3"><h3 class="font-semibold text-sm text-ink dark:text-white truncate">' + p.name + '</h3><div class="text-brand-600 font-bold text-sm mt-1">$' + p.price.toFixed(2) + '</div><button class="mt-2 w-full py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold transition btn-pop add-to-cart" data-id="' + p.id + '">Add to Cart</button></div></div>';
+      }).join('');
+
+      /* ── Addresses panel ── */
+      var addresses = [
+        { label: 'Home', address: '123 Green Street, Apt 4B, New York, NY 10001', color: 'bg-brand-100 dark:bg-brand-900/30 text-brand-600', icon: 'path' },
+        { label: 'Office', address: '456 Madison Ave, Suite 1200, New York, NY 10022', color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600', icon: 'rect' }
+      ];
+      document.getElementById('user-addresses-grid').innerHTML = addresses.map(function(a) {
+        return '<div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-full grid place-items-center shrink-0 ' + a.color + '"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="flex-1 min-w-0"><div class="font-semibold text-sm text-ink dark:text-white">' + a.label + '</div><div class="text-xs text-gray-500 dark:text-gray-400 mt-1">' + a.address + '</div></div><div class="flex gap-1 shrink-0"><button class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-400 transition" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-400 transition" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div></div></div>';
+      }).join('');
+
+      /* ── Subscriptions panel ── */
+      document.getElementById('user-subscriptions-list').innerHTML = pricingPlans.map(function(plan) {
+        var isCurrent = plan.id === 'pro';
+        return '<div class="bg-white dark:bg-gray-800 rounded-2xl border ' + (isCurrent ? 'border-brand-500 ring-2 ring-brand-100 dark:ring-brand-900/40' : 'border-gray-100 dark:border-gray-700') + ' p-6"><div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><h3 class="text-lg font-bold text-ink dark:text-white">' + plan.name + '</h3>' + (isCurrent ? '<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400">Current Plan</span>' : (plan.popular ? '<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400">Popular</span>' : '')) + '</div><p class="text-sm text-gray-500 dark:text-gray-400 mt-1">' + plan.description + '</p></div><div class="text-right"><div class="text-2xl font-extrabold text-ink dark:text-white">$' + (plan.price === 0 ? 'Free' : plan.price.toFixed(2)) + '</div>' + (plan.period !== 'forever' ? '<div class="text-xs text-gray-500 dark:text-gray-400">/' + plan.period + '</div>' : '') + '</div></div><div class="mt-4 grid grid-cols-2 gap-2">' + plan.features.slice(0, 4).map(function(f) {
+          return '<div class="flex items-center gap-2 text-sm ' + (f.included ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500 line-through') + '"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="' + (f.included ? '#16a34a' : '#9ca3af') + '" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' + f.text + '</div>';
+        }).join('') + '</div><div class="mt-4">' + (isCurrent ? '<button class="px-5 py-2 rounded-full border border-gray-200 dark:border-gray-600 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Manage Subscription</button>' : '<button class="px-5 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition btn-pop">Switch to ' + plan.name + '</button>') + '</div></div>';
+      }).join('');
+
+      /* ── Activity ── */
+      var activities = [
+        { icon: '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65"/>', color: 'bg-green-50 dark:bg-green-900/30 text-brand-600', text: 'Order #ORD-1024 delivered', time: 'Today, 10:30 AM' },
+        { icon: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>', color: 'bg-blue-50 dark:bg-blue-900/30 text-blue-600', text: 'Subscription renewed — FreshMart Pro', time: 'Yesterday, 2:15 PM' },
+        { icon: '<path d="M19 14c1.5-2.5 3-5 3-7 0-3-2-5-5-5-1.5 0-3 .7-4 2-1-.3-2.5-.5-4-.5C6 3 4 5 4 8c0 2 1.5 4.5 3 7"/>', color: 'bg-pink-50 dark:bg-pink-900/30 text-pink-600', text: 'Added 3 items to Favorites', time: '2 days ago, 6:45 PM' },
+        { icon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>', color: 'bg-amber-50 dark:bg-amber-900/30 text-amber-600', text: 'Earned 120 reward points', time: '3 days ago, 11:20 AM' },
+        { icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>', color: 'bg-gray-50 dark:bg-gray-700 text-gray-400', text: 'Changed password for security', time: '5 days ago, 9:00 AM' }
+      ];
+      document.getElementById('user-activity').innerHTML = activities.map(function(a) {
+        return '<div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full grid place-items-center shrink-0 mt-0.5 ' + a.color + '"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + a.icon + '</svg></div><div><div class="text-sm font-medium text-ink dark:text-white">' + a.text + '</div><div class="text-xs text-gray-500 dark:text-gray-400">' + a.time + '</div></div></div>';
+      }).join('');
+
+      /* ── Add to cart (recommended + favorites) ── */
+      document.querySelectorAll('.add-to-cart').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var pid = parseInt(this.getAttribute('data-id'), 10);
+          if (pid) {
+            FreshMartCart.addItem(pid);
+            var orig = this.textContent;
+            this.textContent = '\u2713 Added';
+            var self = this;
+            setTimeout(function() { self.textContent = orig; }, 900);
+          }
+        });
+      });
+
+      FreshMartTheme.init();
+    });
+    </script>
+  </body>
+</html>

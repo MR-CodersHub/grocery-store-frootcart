@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="FreshMart Organic — farm-to-table freshness delivered to your door. Shop certified organic produce from local partner farms." />
+    <title>FreshMart — Organic &amp; Farm-to-Table Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div id="navbar-placeholder"></div>
+
+    <main id="top">
+
+      <!-- ════════════════════════════════════════════
+           SECTION 1 — HERO
+           ════════════════════════════════════════════ -->
+      <section class="relative overflow-hidden min-h-[85vh] flex items-center bg-white dark:bg-gray-900">
+        <!-- Background image wrapper -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="../../assets/img/home-bg.jpg"
+            alt="Organic harvest of fruits and vegetables"
+            class="w-full h-full object-cover object-right select-none pointer-events-none opacity-90 dark:opacity-40"
+            loading="eager"
+          />
+          </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-18 w-full">
+          <div class="max-w-xl reveal">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-6 tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+              100% Certified Organic Farm-to-Table
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-gray-950 dark:text-white">
+              Farm-fresh organic food, <span class="text-brand-600 dark:text-brand-500">delivered</span> with care.
+            </h1>
+            <p class="mt-5 text-base md:text-lg text-gray-700 dark:text-gray-350 max-w-lg leading-relaxed">
+              We partner directly with local organic farms so you get the freshest seasonal produce, hormone-free dairy, and artisan goods — harvested at peak ripeness and delivered the same day.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#organic-categories" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold shadow-soft transition-all duration-300 btn-pop text-sm">
+                Shop Organic
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="services.html" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-300 dark:border-gray-600 hover:border-brand-600 dark:hover:border-brand-500 text-gray-700 dark:text-gray-300 font-semibold transition-all duration-300 btn-pop text-sm">
+                Browse Products
+              </a>
+            </div>
+            
+            <div class="mt-10 flex flex-wrap items-center gap-6">
+              <!-- Avatar Stack -->
+              <div class="flex items-center gap-3">
+                <div class="flex -space-x-2">
+                  <img src="../../assets/img/buyer1.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-gray-800" />
+                  <img src="../../assets/img/buyer2.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-gray-800" />
+                  <img src="../../assets/img/buyer3.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-gray-800" />
+                  <div class="w-9 h-9 rounded-full bg-brand-500 border-2 border-white dark:border-gray-800 grid place-items-center text-white text-[10px] font-bold">+</div>
+                </div>
+                <div class="text-gray-700 dark:text-gray-300 text-sm">
+                  <div class="font-bold text-gray-900 dark:text-white">8,500+</div>
+                  <div class="text-xs text-gray-700 dark:text-gray-400">organic families served</div>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 hidden sm:block"></div>
+
+              <!-- Extra Trust Element -->
+              <div class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="text-sm">
+                  <div class="font-bold text-gray-900 dark:text-white">Eco-Certified</div>
+                  <div class="text-xs text-gray-700 dark:text-gray-400">100% sustainable packaging</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 2 — HOW IT WORKS
+           ════════════════════════════════════════════ -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-12 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Simple &amp; Fresh</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">How It Works</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">From farm to your table in three easy steps — no middlemen, no long waits.</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div class="relative text-center p-8 rounded-3xl bg-cream dark:bg-gray-800 reveal">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-600 text-white font-bold text-lg grid place-items-center">1</div>
+              <div class="w-16 h-16 mx-auto mt-4 rounded-2xl bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center mb-5">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </div>
+              <h3 class="text-xl font-bold">Order Online</h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Browse our curated organic catalog and add your favorites to cart. Set your preferred delivery window.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative text-center p-8 rounded-3xl bg-cream dark:bg-gray-800 reveal">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-600 text-white font-bold text-lg grid place-items-center">2</div>
+              <div class="w-16 h-16 mx-auto mt-4 rounded-2xl bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center mb-5">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17m-2 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/><path d="M17 7V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h2"/><path d="M14 9h6.5a1 1 0 0 1 .8.4l2.7 3.6a1 1 0 0 1 .1.6V17a1 1 0 0 1-1 1h-1"/><line x1="3" y1="10" x2="14" y2="9"/></svg>
+              </div>
+              <h3 class="text-xl font-bold">We Pick &amp; Pack</h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Our team hand-selects produce at peak freshness from partner farms and packs it in sustainable, compostable packaging.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative text-center p-8 rounded-3xl bg-cream dark:bg-gray-800 reveal">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-600 text-white font-bold text-lg grid place-items-center">3</div>
+              <div class="w-16 h-16 mx-auto mt-4 rounded-2xl bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center mb-5">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3 class="text-xl font-bold">You Enjoy</h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Receive your order within hours. Enjoy farm-fresh organic meals with your family knowing every bite is quality-tested.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 3 — FEATURED ORGANIC CATEGORIES
+           ════════════════════════════════════════════ -->
+      <section id="organic-categories" class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-end justify-between flex-wrap gap-4 mb-8 reveal">
+            <div>
+              <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Curated for you</p>
+              <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Organic Categories</h2>
+            </div>
+            <a href="services.html" class="text-brand-700 dark:text-brand-400 font-semibold hover:underline">View all organic products →</a>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <!-- Organic Fruits -->
+            <a href="service-details.html?id=fresh-produce" class="group relative aspect-[4/5] rounded-3xl overflow-hidden shadow-sm hover:shadow-soft transition reveal">
+              <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=500&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Organic fruits" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="text-xs uppercase tracking-wider opacity-80 mb-1">Certified</div>
+                <div class="font-bold text-lg">Organic Fruits</div>
+                <div class="text-xs opacity-90 mt-1">45+ varieties</div>
+              </div>
+              <span class="absolute top-3 right-3 px-2 py-0.5 bg-brand-500 text-white text-xs font-bold rounded-full">Organic</span>
+            </a>
+            <!-- Organic Vegetables -->
+            <a href="service-details.html?id=fresh-produce" class="group relative aspect-[4/5] rounded-3xl overflow-hidden shadow-sm hover:shadow-soft transition reveal">
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Organic vegetables" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="text-xs uppercase tracking-wider opacity-80 mb-1">Certified</div>
+                <div class="font-bold text-lg">Organic Vegetables</div>
+                <div class="text-xs opacity-90 mt-1">60+ varieties</div>
+              </div>
+              <span class="absolute top-3 right-3 px-2 py-0.5 bg-brand-500 text-white text-xs font-bold rounded-full">Organic</span>
+            </a>
+            <!-- Grass-Fed Dairy -->
+            <a href="service-details.html?id=dairy-eggs" class="group relative aspect-[4/5] rounded-3xl overflow-hidden shadow-sm hover:shadow-soft transition reveal">
+              <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=500&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Grass-fed dairy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="text-xs uppercase tracking-wider opacity-80 mb-1">Grass-fed</div>
+                <div class="font-bold text-lg">Dairy &amp; Eggs</div>
+                <div class="text-xs opacity-90 mt-1">28+ products</div>
+              </div>
+              <span class="absolute top-3 right-3 px-2 py-0.5 bg-amber-500 text-white text-xs font-bold rounded-full">Farm</span>
+            </a>
+            <!-- Artisan Bread -->
+            <a href="service-details.html?id=bakery-fresh" class="group relative aspect-[4/5] rounded-3xl overflow-hidden shadow-sm hover:shadow-soft transition reveal">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Artisan bread and bakery" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="text-xs uppercase tracking-wider opacity-80 mb-1">Baked fresh</div>
+                <div class="font-bold text-lg">Artisan Bakery</div>
+                <div class="text-xs opacity-90 mt-1">22+ items</div>
+              </div>
+              <span class="absolute top-3 right-3 px-2 py-0.5 bg-orange-500 text-white text-xs font-bold rounded-full">Fresh</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 4 — PARTNER FARM SPOTLIGHT
+           ════════════════════════════════════════════ -->
+      <section id="farms" class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-12 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Our partners</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Meet the Farms Behind Your Food</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">We work with certified organic farms within 100 miles — real people growing real food with sustainable practices.</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Farm 1 -->
+            <div class="bg-cream dark:bg-gray-800 rounded-3xl overflow-hidden reveal">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Green Valley Organic Farm" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-brand-600 text-white text-xs font-bold rounded-full">Since 2010</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold">Green Valley Organic Farm</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sonoma County — 42 miles away</p>
+                <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Family-owned since 2010, specializing in heirloom tomatoes, leafy greens, and seasonal berries using regenerative agriculture.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-2 py-0.5 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-medium rounded-full">USDA Organic</span>
+                  <span class="px-2 py-0.5 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-medium rounded-full">Regenerative</span>
+                </div>
+              </div>
+            </div>
+            <!-- Farm 2 -->
+            <div class="bg-cream dark:bg-gray-800 rounded-3xl overflow-hidden reveal">
+              <div class="relative h-48 overflow-hidden">
+                <img src="../../assets/img/farmland1.jpg" alt="Sunrise Pastures Dairy" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-amber-500 text-white text-xs font-bold rounded-full">Since 2008</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold">Sunrise Pastures Dairy</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Marin County — 38 miles away</p>
+                <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Grass-fed, free-range dairy farm producing milk, yogurt, butter, and farm-fresh eggs from heritage-breed hens.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-2 py-0.5 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-medium rounded-full">Grass-Fed</span>
+                  <span class="px-2 py-0.5 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-medium rounded-full">Free-Range</span>
+                </div>
+              </div>
+            </div>
+            <!-- Farm 3 -->
+            <div class="bg-cream dark:bg-gray-800 rounded-3xl overflow-hidden reveal">
+              <div class="relative h-48 overflow-hidden">
+                <img src="../../assets/img/farmland2.jpg" alt="Meadowbrook Orchards" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-orange-500 text-white text-xs font-bold rounded-full">Since 2005</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold">Meadowbrook Orchards</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Napa Valley — 56 miles away</p>
+                <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Award-winning orchards growing 30+ apple and stone fruit varieties, plus seasonal preserves and ciders.</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-2 py-0.5 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-medium rounded-full">Pesticide-Free</span>
+                  <span class="px-2 py-0.5 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-medium rounded-full">Biodynamic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 5 — SEASONAL PICKS
+           ════════════════════════════════════════════ -->
+      <section class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-end justify-between flex-wrap gap-4 mb-8 reveal">
+            <div>
+              <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Fresh this week</p>
+              <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Seasonal Picks</h2>
+              <p class="mt-2 text-gray-600 dark:text-gray-400">Harvested at peak ripeness from our partner farms.</p>
+            </div>
+            <a href="service-details.html?id=fresh-produce" class="text-brand-700 dark:text-brand-400 font-semibold hover:underline">See all seasonal →</a>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+            <!-- Seasonal Item 1 -->
+            <div class="product-card bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 reveal">
+              <div class="relative aspect-square overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=500&q=80" alt="Wild blueberries" class="product-image w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-brand-500 text-white text-xs font-bold rounded-full">In Season</span>
+              </div>
+              <div class="p-4">
+                <h4 class="font-bold">Wild Blueberries</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Hand-picked, antioxidant-rich</p>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="text-brand-600 font-extrabold">$5.99</span>
+                  <button class="add-to-cart-btn w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center hover:bg-brand-200 transition" aria-label="Add to cart" data-product-id="7">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Seasonal Item 2 -->
+            <div class="product-card bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 reveal">
+              <div class="relative aspect-square overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=500&q=80" alt="Fresh strawberries" class="product-image w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-brand-500 text-white text-xs font-bold rounded-full">In Season</span>
+              </div>
+              <div class="p-4">
+                <h4 class="font-bold">Fresh Strawberries</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sun-ripened, juicy</p>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="text-brand-600 font-extrabold">$3.49</span>
+                  <button class="add-to-cart-btn w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center hover:bg-brand-200 transition" aria-label="Add to cart" data-product-id="2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Seasonal Item 3 -->
+            <div class="product-card bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 reveal">
+              <div class="relative aspect-square overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80" alt="Heirloom tomatoes" class="product-image w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-brand-500 text-white text-xs font-bold rounded-full">In Season</span>
+              </div>
+              <div class="p-4">
+                <h4 class="font-bold">Heirloom Tomatoes</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Garden-fresh, rich flavor</p>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="text-brand-600 font-extrabold">$3.99</span>
+                  <button class="add-to-cart-btn w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center hover:bg-brand-200 transition" aria-label="Add to cart" data-product-id="8">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Seasonal Item 4 -->
+            <div class="product-card bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 reveal">
+              <div class="relative aspect-square overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500&q=80" alt="Organic spinach bundle" class="product-image w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 px-2 py-0.5 bg-brand-500 text-white text-xs font-bold rounded-full">In Season</span>
+              </div>
+              <div class="p-4">
+                <h4 class="font-bold">Organic Spinach</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Crisp, nutrient-dense</p>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="text-brand-600 font-extrabold">$3.29</span>
+                  <button class="add-to-cart-btn w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 grid place-items-center hover:bg-brand-200 transition" aria-label="Add to cart" data-product-id="9">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 6 — CUSTOMER STORIES / TESTIMONIALS
+           ════════════════════════════════════════════ -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Real stories</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">What Our Organic Community Says</h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <article class="bg-cream dark:bg-gray-800 rounded-3xl p-7 reveal">
+              <div class="flex items-center gap-1 text-amber-400 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"I switched to FreshMart's organic line and the difference in taste is incredible. You can tell these tomatoes were picked that morning — nothing like the supermarket ones."</p>
+              <div class="mt-5 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Elena M." class="w-10 h-10 rounded-full object-cover" />
+                <div>
+                  <div class="font-semibold text-sm">Elena M.</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Organic member since 2023</div>
+                </div>
+              </div>
+            </article>
+            <article class="bg-cream dark:bg-gray-800 rounded-3xl p-7 reveal">
+              <div class="flex items-center gap-1 text-amber-400 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"My kids actually ask for the organic strawberries now! Knowing they come from local farms and are pesticide-free makes me feel great about what I'm feeding them."</p>
+              <div class="mt-5 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="David K." class="w-10 h-10 rounded-full object-cover" />
+                <div>
+                  <div class="font-semibold text-sm">David K.</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Family Plan member</div>
+                </div>
+              </div>
+            </article>
+            <article class="bg-cream dark:bg-gray-800 rounded-3xl p-7 reveal">
+              <div class="flex items-center gap-1 text-amber-400 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"As a chef, I'm incredibly picky about produce. FreshMart's farm partners deliver restaurant-quality ingredients. The heirloom tomatoes are absolutely perfect for my salads."</p>
+              <div class="mt-5 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80" alt="Priya S." class="w-10 h-10 rounded-full object-cover" />
+                <div>
+                  <div class="font-semibold text-sm">Priya S.</div>
+                  <div class="text-xs text-gray-500 dark:text-gray-400">Pro member since 2024</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════
+           SECTION 7 — SUSTAINABILITY BANNER
+           ════════════════════════════════════════════ -->
+      <section class="reveal">
+        <div class="max-w-7xl mx-auto px-4 mb-12">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white p-6 sm:p-8 md:p-12 shadow-xl">
+            <div class="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-72 h-72 rounded-full bg-emerald-300/20 blur-3xl"></div>
+            <div class="relative grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-white/20 text-sm font-semibold mb-3 backdrop-blur-sm border border-white/10">Our commitment</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">Zero-waste packaging by 2027</h3>
+                <p class="mt-3 text-white/90 max-w-md leading-relaxed">Every order arrives in 100% compostable packaging. We're eliminating single-use plastics across our entire supply chain.</p>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 flex sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] shadow-sm">
+                  <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">100%</div>
+                  <div class="text-xs sm:text-sm font-medium text-white/90 sm:mt-1.5 leading-snug">Recyclable packaging</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 flex sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] shadow-sm">
+                  <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">80+</div>
+                  <div class="text-xs sm:text-sm font-medium text-white/90 sm:mt-1.5 leading-snug">Local farm partners</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 flex sm:flex-col items-center justify-between sm:justify-center text-left sm:text-center transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] shadow-sm">
+                  <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">&lt;50</div>
+                  <div class="text-xs sm:text-sm font-medium text-white/90 sm:mt-1.5 leading-snug">Miles avg. to your door</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <!-- Seasonal Picks Add-to-Cart functionality -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const productId = parseInt(btn.dataset.productId, 10);
+            if (typeof FreshMartCart !== 'undefined' && productId) {
+              FreshMartCart.addItem(productId, 1);
+              
+              // Micro-animation: turn the add button into a green checkmark briefly
+              const originalSVG = btn.innerHTML;
+              btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+              btn.classList.add('bg-brand-500', 'text-white');
+              btn.classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-600');
+              
+              setTimeout(() => {
+                btn.innerHTML = originalSVG;
+                btn.classList.remove('bg-brand-500', 'text-white');
+                btn.classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-600');
+              }, 1000);
+
+              // Show a premium toast notification
+              if (typeof FreshMartForms !== 'undefined' && typeof FreshMartForms.showToast === 'function') {
+                const productName = btn.closest('.product-card').querySelector('h4').textContent;
+                FreshMartForms.showToast(`${productName} added to cart!`, 'success');
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

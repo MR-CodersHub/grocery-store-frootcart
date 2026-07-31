@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#16a34a" />
+    <meta name="description" content="FreshMart — Service Details. Learn more about our delivery services." />
+    <title>Service Details — FreshMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            colors: {
+              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+              cream: '#fefce8',
+              ink: '#1f2937',
+            },
+            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+  </head>
+  <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+    <div id="navbar-placeholder"></div>
+
+    <main id="top">
+
+      <!-- HERO SECTION -->
+      <section id="hero-section" class="relative overflow-hidden bg-gradient-to-br from-cream via-white to-brand-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+          <div class="reveal">
+            <a href="services.html" class="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 text-sm font-semibold mb-6">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              Back to Services
+            </a>
+            <div id="hero-category" class="inline-block px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-4"></div>
+            <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight"></h1>
+            <p id="hero-desc" class="mt-5 text-lg text-gray-600 dark:text-gray-400 max-w-lg"></p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href="#pricing" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-soft transition btn-pop">
+                View Pricing
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="#faqs" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 hover:border-brand-600 hover:text-brand-700 font-semibold transition btn-pop">
+                FAQs
+              </a>
+            </div>
+          </div>
+          <div class="relative reveal">
+            <div class="relative aspect-[4/3] w-full max-w-lg mx-auto rounded-3xl overflow-hidden shadow-soft">
+              <img id="hero-image" src="" alt="" loading="eager" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FULL DESCRIPTION SECTION -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4">
+          <div class="reveal">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">About This Service</h2>
+            <p id="full-description" class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES SECTION -->
+      <section class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">What you get</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Key Features</h2>
+          </div>
+          <div id="features-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING TIERS SECTION -->
+      <section id="pricing" class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Pricing</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Choose Your Plan</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">Flexible plans that grow with your needs. All plans include free delivery over $40.</p>
+          </div>
+          <div id="pricing-grid" class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQS SECTION -->
+      <section id="faqs" class="py-16 md:py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-3xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Got questions?</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Frequently Asked Questions</h2>
+          </div>
+          <div id="faqs-list" class="space-y-4">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED SERVICES SECTION -->
+      <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-10 reveal">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Explore more</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Related Services</h2>
+          </div>
+          <div id="related-services" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA SECTION -->
+      <section class="reveal">
+        <div class="max-w-7xl mx-auto px-4 pb-16">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white p-8 md:p-12">
+            <div class="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
+            <div class="relative text-center">
+              <h3 class="text-3xl md:text-4xl font-extrabold leading-tight">Ready to get started?</h3>
+              <p class="mt-3 text-white/90 max-w-xl mx-auto">Join 12,000+ happy customers who enjoy farm-fresh groceries delivered daily.</p>
+              <div class="mt-7 flex flex-wrap justify-center gap-4">
+                <a href="pricing.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-amber-300 hover:bg-amber-400 text-ink font-bold shadow-soft transition btn-pop">
+                  Get Started
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-white/40 hover:border-white hover:text-white font-semibold transition btn-pop">
+                  Contact Sales
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../../src/js/data.js"></script>
+    <script src="../../src/js/cart.js"></script>
+    <script src="../../src/js/navbar.js"></script>
+    <script src="../../src/js/footer.js"></script>
+    <script src="../../src/js/theme.js"></script>
+    <script src="../../src/js/form-validation.js"></script>
+    <script src="../../src/js/blog.js"></script>
+    <script src="../../src/js/script.js"></script>
+
+    <script>
+      (() => {
+        'use strict';
+
+        const base = FreshMartNavbar.getBasePath();
+        const params = new URLSearchParams(window.location.search);
+        const serviceId = params.get('id');
+
+        const { SERVICES, PRICING_PLANS, FAQS } = FreshMartData;
+
+        let service = SERVICES.find(s => s.id === serviceId) || SERVICES[0];
+
+        if (!service) {
+          document.querySelector('#top').innerHTML = `
+            <section class="py-32 text-center">
+              <div class="max-w-xl mx-auto px-4">
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 mb-6 mx-auto">
+                  <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-4">Service Not Found</h1>
+                <p class="text-gray-600 dark:text-gray-400 mb-8">The service you're looking for doesn't exist or has been moved.</p>
+                <a href="${base}public/pages/services.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-soft transition btn-pop">
+                  Browse All Services
+                </a>
+              </div>
+            </section>`;
+          return;
+        }
+
+        document.title = `${service.title} — FreshMart`;
+
+        const heroCategory = document.getElementById('hero-category');
+        const heroTitle = document.getElementById('hero-title');
+        const heroDesc = document.getElementById('hero-desc');
+        const heroImage = document.getElementById('hero-image');
+
+        heroCategory.textContent = service.category;
+        heroTitle.textContent = service.title;
+        heroDesc.textContent = service.shortDesc;
+        heroImage.src = service.img;
+        heroImage.alt = service.title;
+
+        document.getElementById('full-description').textContent = service.longDesc;
+
+        const featuresGrid = document.getElementById('features-grid');
+        featuresGrid.innerHTML = service.features.map((feature, i) => `
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 reveal">
+            <div class="flex items-start gap-4">
+              <div class="grid place-items-center w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 shrink-0 mt-0.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white">${feature}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">${getFeatureDescription(feature)}</p>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        function getFeatureDescription(feature) {
+          const descriptions = {
+            'Same-day delivery': 'Order before 2 PM and receive your items the same day.',
+            'Hand-picked quality': 'Every item is inspected by our quality team before dispatch.',
+            '80+ local farm partners': 'Sourced from trusted farms within 100 miles of your location.',
+            '100% organic options': 'Choose from our wide range of certified organic products.',
+            'Seasonal selections': 'Curated picks that rotate with the seasons for peak freshness.',
+            'Sustainable packaging': 'All packaging is 100% recyclable and compostable.',
+            'Free-range eggs': 'From hens that roam freely on pasture, with better nutrition.',
+            'Grass-fed dairy': 'Milk from grass-fed cows, richer in Omega-3 and CLA.',
+            'No antibiotics': 'Our animals are raised without routine antibiotics.',
+            'Cold-chain guaranteed': 'Temperature-controlled from farm to your door.',
+            'Baked same day': 'Freshly baked the morning of your delivery.',
+            'Sourdough specialists': 'Long-fermented sourdough with complex flavors.',
+            'Gluten-free options': 'Dedicated gluten-free range for dietary needs.',
+            'Custom orders': 'Special requests and custom sizes available.',
+            'Local bakeries': 'Supporting artisan bakers in your community.',
+            'Preservative-free': 'No artificial preservatives, ever.',
+            'Cold-pressed juices': 'Nutrient-rich juices extracted without heat.',
+            'Artisan coffee': 'Single-origin beans from small-batch roasters.',
+            'Kombucha on tap': 'Live, raw kombucha brewed locally.',
+            'Protein shakes': 'Post-workout shakes with fresh ingredients.',
+            'Zero-sugar options': 'Great taste without the sugar.',
+            'Local brands': 'Supporting local drink makers and roasters.',
+            'Organic certified': 'USDA and local organic certifications.',
+            'Bulk discounts': 'Save more when you buy in larger quantities.',
+            'Gluten-free range': 'Dedicated gluten-free pantry essentials.',
+            'Imported specialties': 'Curated products from around the world.',
+            'Baby food': 'Organic, nutritious options for your little ones.',
+            'Vegan options': 'Plant-based pantry staples and snacks.',
+            '30-min recipes': 'Complete meals ready in half an hour.',
+            'Pre-portioned': 'Exact amounts — no waste, no guesswork.',
+            'Chef-designed': 'Recipes created by professional chefs.',
+            'Family-friendly': 'Kid-approved meals the whole family will enjoy.',
+            'Dietary filters': 'Filter by gluten-free, dairy-free, vegan, and more.',
+            'Weekly rotations': 'New recipes every week to keep things exciting.'
+          };
+          return descriptions[feature] || 'Included with this service tier.';
+        }
+
+        const pricingGrid = document.getElementById('pricing-grid');
+        pricingGrid.innerHTML = PRICING_PLANS.map(plan => `
+          <div class="pricing-card bg-white dark:bg-gray-800 rounded-3xl p-8 border ${plan.popular ? 'border-brand-500 shadow-soft relative' : 'border-gray-100 dark:border-gray-700'} reveal">
+            ${plan.popular ? '<span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-brand-600 text-white text-xs font-bold">Most Popular</span>' : ''}
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">${plan.name}</h3>
+              <div class="mt-3">
+                <span class="text-4xl font-extrabold text-brand-700 dark:text-brand-400">${plan.price === 0 ? 'Free' : '$' + plan.price.toFixed(2)}</span>
+                ${plan.price > 0 ? `<span class="text-gray-500 dark:text-gray-400">/${plan.period}</span>` : ''}
+              </div>
+              <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">${plan.description}</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              ${plan.features.map(f => `
+                <li class="flex items-center gap-3">
+                  ${f.included
+                    ? '<span class="grid place-items-center w-5 h-5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 shrink-0 text-xs">✓</span>'
+                    : '<span class="grid place-items-center w-5 h-5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-400 shrink-0 text-xs">✕</span>'
+                  }
+                  <span class="text-sm ${f.included ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500'}">${f.text}</span>
+                </li>
+              `).join('')}
+            </ul>
+            <button class="w-full py-3 rounded-full font-semibold transition btn-pop ${plan.popular ? 'bg-brand-600 hover:bg-brand-700 text-white shadow-soft' : 'bg-gray-100 dark:bg-gray-700 hover:bg-brand-600 hover:text-white text-gray-700 dark:text-gray-300'}">${plan.cta}</button>
+          </div>
+        `).join('');
+
+        const serviceFAQs = [
+          {
+            q: `What makes ${service.title} different from competitors?`,
+            a: `${service.title} is built on our network of over 80 local partners, ensuring every item is sourced ethically and delivered fresh. We inspect every order for quality and guarantee satisfaction with our 30-day return policy.`
+          },
+          {
+            q: 'How quickly can I expect my order?',
+            a: 'Standard delivery arrives within 2-3 hours. FreshMart Pro and Family members get priority delivery in under 1 hour. You can also schedule deliveries up to 7 days in advance.'
+          },
+          {
+            q: 'Is there a minimum order amount?',
+            a: 'There is no minimum order. However, orders over $40 qualify for free standard delivery. Pro and Family members always get free delivery regardless of order size.'
+          },
+          {
+            q: 'Can I customize my order?',
+            a: 'Absolutely! You can add special instructions, select specific quantities, and set preferences for items. Our team will do our best to accommodate all reasonable requests.'
+          }
+        ];
+
+        const faqsList = document.getElementById('faqs-list');
+        faqsList.innerHTML = serviceFAQs.map((faq, i) => `
+          <div class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden reveal">
+            <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+              <span class="font-semibold text-gray-900 dark:text-white pr-4">${faq.q}</span>
+              <svg class="faq-icon shrink-0 w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer px-6">
+              <p class="pb-5 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">${faq.a}</p>
+            </div>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = answer.classList.contains('open');
+
+            document.querySelectorAll('.faq-answer.open').forEach(el => {
+              el.classList.remove('open');
+              el.previousElementSibling.setAttribute('aria-expanded', 'false');
+              el.previousElementSibling.querySelector('.faq-icon').style.transform = '';
+            });
+
+            if (!isOpen) {
+              answer.classList.add('open');
+              btn.setAttribute('aria-expanded', 'true');
+              icon.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+
+        const relatedServices = SERVICES.filter(s => s.id !== service.id).slice(0, 3);
+        const relatedGrid = document.getElementById('related-services');
+        relatedGrid.innerHTML = relatedServices.map(s => `
+          <a href="service-details.html?id=${s.id}" class="service-card block bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 reveal">
+            <div class="aspect-video overflow-hidden bg-gray-100 dark:bg-gray-700">
+              <img src="${s.img}" alt="${s.title}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-400 text-xs font-semibold">${s.category}</span>
+              </div>
+              <h3 class="font-bold text-lg text-gray-900 dark:text-white">${s.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${s.shortDesc}</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-brand-700 dark:text-brand-400 font-semibold text-sm">
+                Learn more
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </a>
+        `).join('');
+
+        if (typeof window.initReveal === 'function') { window.initReveal(); }
+      })();
+    </script>
+  </body>
+</html>

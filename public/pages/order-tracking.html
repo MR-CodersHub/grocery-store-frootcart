@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking - FreshMart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
+            ink: '#1a1a2e'
+          },
+          fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../../src/css/style.css">
+</head>
+<body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
+
+  <div id="navbar-placeholder"></div>
+
+  <main>
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+
+      <!-- Order Lookup (shown if no ?id= param) -->
+      <section id="order-lookup" class="hidden mb-12">
+        <div class="max-w-xl mx-auto text-center">
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+            <div class="w-16 h-16 mx-auto mb-6 bg-brand-100 dark:bg-brand-900 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Find Your Order</h2>
+            <p class="text-gray-500 dark:text-gray-400 mb-6">Enter your order ID to track its status. You can find the order ID in your confirmation email.</p>
+            <div class="flex gap-3">
+              <input id="lookup-input" type="text" placeholder="e.g. FM-20260715-001" class="flex-1 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition">
+              <button id="track-btn" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition shadow-md hover:shadow-lg">Track Order</button>
+            </div>
+            <p class="mt-4 text-sm text-gray-400 dark:text-gray-500">Tip: Try any order ID like <span class="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">FM-20260715-001</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Not Found Message -->
+      <section id="order-not-found" class="hidden mb-12">
+        <div class="max-w-xl mx-auto text-center">
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+            <div class="w-16 h-16 mx-auto mb-6 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">Order Not Found</h2>
+            <p class="text-gray-500 dark:text-gray-400 mb-6">We couldn't find an order with that ID. Please double-check your order number and try again.</p>
+            <div class="flex justify-center gap-4">
+              <a href="order-tracking.html" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition shadow-md">Try Again</a>
+              <a href="shop.html" class="px-6 py-3 border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-brand-900 font-semibold rounded-xl transition">Place an Order</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Status Card -->
+      <section id="order-status" class="hidden mb-12">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+            <div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Order ID</p>
+              <h2 id="order-id-display" class="text-2xl font-bold font-mono"></h2>
+              <p id="order-date-display" class="text-sm text-gray-500 dark:text-gray-400 mt-1"></p>
+            </div>
+            <div id="order-status-badge"></div>
+          </div>
+
+          <!-- Timeline -->
+          <div id="order-timeline" class="mb-8"></div>
+
+          <div class="flex justify-end">
+            <button id="simulate-btn" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl transition shadow-md text-sm">
+              ⚡ Simulate Progress
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Details -->
+      <section id="order-details" class="hidden mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Items List -->
+          <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+            <h3 class="text-xl font-bold mb-6">Order Items</h3>
+            <div id="order-items-list" class="divide-y divide-gray-100 dark:divide-gray-700"></div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 h-fit">
+            <h3 class="text-xl font-bold mb-6">Order Summary</h3>
+            <div id="shipping-address" class="mb-6"></div>
+            <div id="order-total-breakdown" class="space-y-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- All Orders -->
+      <section id="all-orders" class="hidden mb-12">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+          <h3 class="text-2xl font-bold mb-6">Your Recent Orders</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400">
+                  <th class="pb-3 font-semibold">Order ID</th>
+                  <th class="pb-3 font-semibold hidden sm:table-cell">Date</th>
+                  <th class="pb-3 font-semibold">Items</th>
+                  <th class="pb-3 font-semibold">Total</th>
+                  <th class="pb-3 font-semibold">Status</th>
+                  <th class="pb-3 font-semibold text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="all-orders-body" class="divide-y divide-gray-100 dark:divide-gray-700"></tbody>
+            </table>
+          </div>
+          <div id="no-orders-message" class="hidden text-center py-12">
+            <p class="text-gray-400 dark:text-gray-500 mb-4">You haven't placed any orders yet.</p>
+            <a href="shop.html" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition shadow-md inline-block">Start Shopping</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Help Section -->
+      <section class="bg-brand-50 dark:bg-gray-800 rounded-2xl p-8 border border-brand-100 dark:border-gray-700">
+        <div class="max-w-2xl mx-auto text-center">
+          <h3 class="text-2xl font-bold mb-3">Need help with your order?</h3>
+          <p class="text-gray-500 dark:text-gray-400 mb-6">Our support team is available 24/7 to assist you with any questions.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="contact.html" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl transition shadow-md">Contact Support</a>
+            <a href="faq.html" class="px-6 py-3 border border-brand-600 text-brand-600 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-brand-900 font-semibold rounded-xl transition">View FAQ</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../../src/js/data.js"></script>
+  <script src="../../src/js/cart.js"></script>
+  <script src="../../src/js/navbar.js"></script>
+  <script src="../../src/js/footer.js"></script>
+  <script src="../../src/js/theme.js"></script>
+  <script src="../../src/js/form-validation.js"></script>
+  <script src="../../src/js/blog.js"></script>
+  <script src="../../src/js/script.js"></script>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const orderId = params.get('id');
+
+      const lookupSection = document.getElementById('order-lookup');
+      const notFoundSection = document.getElementById('order-not-found');
+      const statusSection = document.getElementById('order-status');
+      const detailsSection = document.getElementById('order-details');
+      const allOrdersSection = document.getElementById('all-orders');
+
+      function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const h = d.getHours();
+        const m = d.getMinutes().toString().padStart(2, '0');
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        const hour = h % 12 || 12;
+        return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} at ${hour}:${m} ${ampm}`;
+      }
+
+      function formatDateShort(dateStr) {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+      }
+
+      function statusLabel(status) {
+        const map = {
+          confirmed: { label: 'Confirmed', color: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' },
+          preparing: { label: 'Being Prepared', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' },
+          'out-for-delivery': { label: 'Out for Delivery', color: 'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300' },
+          delivered: { label: 'Delivered', color: 'bg-green-600 text-white' }
+        };
+        return map[status] || { label: status, color: 'bg-gray-100 text-gray-700' };
+      }
+
+      function renderTimeline(timeline) {
+        const steps = [
+          { key: 'orderPlaced', name: 'Order Placed' },
+          { key: 'beingPrepared', name: 'Being Prepared' },
+          { key: 'outForDelivery', name: 'Out for Delivery' },
+          { key: 'delivered', name: 'Delivered' }
+        ];
+
+        let html = '<div class="flex items-start justify-between relative">';
+
+        steps.forEach((step, i) => {
+          const stepData = timeline ? timeline.find(t => t.step === step.key) : null;
+          const done = stepData && stepData.done;
+          const nextStep = steps[i + 1];
+          const nextDone = nextStep ? (timeline ? timeline.find(t => t.step === nextStep.key) : null) : null;
+          const nextIsDone = nextDone && nextDone.done;
+
+          const isLast = i === steps.length - 1;
+
+          // Connector line
+          if (!isLast) {
+            const lineDone = done && nextIsDone;
+            const lineClass = lineDone
+              ? 'bg-brand-500'
+              : done ? 'bg-brand-500 border-t-2 border-dashed border-brand-300' : 'bg-gray-200 dark:bg-gray-600 border-t-2 border-dashed border-gray-300 dark:border-gray-500';
+            html += `<div class="hidden md:block absolute top-5 left-[${(i * 25) + 12.5}%] w-[25%] h-1 ${lineDone ? '' : ''}" style="z-index:0"></div>`;
+          }
+
+          // Step circle
+          html += `<div class="flex flex-col items-center relative z-10 flex-1">`;
+
+          // Connector line between steps (horizontal)
+          if (!isLast) {
+            html += `<div class="hidden md:block absolute top-5 left-1/2 w-full h-1 -z-10">
+              <div class="h-1 w-full ${done && nextIsDone ? 'bg-brand-500' : done ? 'bg-gradient-to-r from-brand-500 to-transparent border-t-2 border-dashed border-brand-300' : 'bg-gray-200 dark:bg-gray-600 border-t-2 border-dashed border-gray-300 dark:border-gray-500'}"></div>
+            </div>`;
+          }
+
+          html += `<div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+            done
+              ? 'bg-brand-500 text-white shadow-lg shadow-brand-200 dark:shadow-brand-900'
+              : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500'
+          }">`;
+          if (done) {
+            html += `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>`;
+          } else {
+            html += `${i + 1}`;
+          }
+          html += `</div>`;
+
+          html += `<p class="mt-3 text-sm font-semibold text-center ${done ? 'text-brand-600 dark:text-brand-400' : 'text-gray-400 dark:text-gray-500'}">${step.name}</p>`;
+          if (done && stepData.timestamp) {
+            html += `<p class="mt-1 text-xs text-gray-400 dark:text-gray-500 text-center">${formatDateShort(stepData.timestamp)}</p>`;
+          }
+
+          html += `</div>`;
+        });
+
+        html += '</div>';
+        return html;
+      }
+
+      function renderOrderStatus(order) {
+        const st = statusLabel(order.status);
+        document.getElementById('order-id-display').textContent = order.id;
+        document.getElementById('order-date-display').textContent = 'Placed on ' + formatDate(order.createdAt);
+        document.getElementById('order-status-badge').innerHTML = `<span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${st.color}">${st.label}</span>`;
+        document.getElementById('order-timeline').innerHTML = renderTimeline(order.timeline);
+
+        document.getElementById('simulate-btn').onclick = function () {
+          if (typeof FreshMartCart !== 'undefined' && FreshMartCart.simulateProgress) {
+            FreshMartCart.simulateProgress(order.id);
+            const updated = FreshMartCart.getOrderById(order.id);
+            if (updated) {
+              renderOrderStatus(updated);
+            }
+          }
+        };
+
+        statusSection.classList.remove('hidden');
+      }
+
+      function renderOrderDetails(order) {
+        // Items
+        let itemsHtml = '';
+        if (order.items && order.items.length) {
+          order.items.forEach(item => {
+            itemsHtml += `
+              <div class="flex items-center gap-4 py-4">
+                <img src="${item.image || item.img || '../../assets/images/placeholder.png'}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl bg-gray-100 dark:bg-gray-700">
+                <div class="flex-1">
+                  <p class="font-semibold">${item.name}</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Qty: ${item.quantity || item.qty || 1}</p>
+                </div>
+                <p class="font-semibold">$${((item.price || 0) * (item.quantity || item.qty || 1)).toFixed(2)}</p>
+              </div>`;
+          });
+        }
+        document.getElementById('order-items-list').innerHTML = itemsHtml;
+
+        // Shipping
+        let addressHtml = '<div class="mb-2 font-semibold">Shipping Address</div>';
+        if (order.shippingAddress) {
+          const a = order.shippingAddress;
+          addressHtml += `<p class="text-sm text-gray-500 dark:text-gray-400">${a.street || ''}, ${a.city || ''}, ${a.state || ''} ${a.zip || ''}</p>`;
+        } else {
+          addressHtml += `<p class="text-sm text-gray-500 dark:text-gray-400">123 Fresh Street, Grocery City, FC 12345</p>`;
+        }
+        document.getElementById('shipping-address').innerHTML = addressHtml;
+
+        // Totals
+        const subtotal = order.subtotal || order.total * 0.88 || 0;
+        const delivery = order.deliveryFee || order.delivery || order.total * 0.05 || 0;
+        const tax = order.tax || order.total * 0.07 || 0;
+        const total = order.total || (subtotal + delivery + tax);
+
+        let breakdownHtml = `
+          <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>Subtotal</span><span>$${subtotal.toFixed(2)}</span>
+          </div>
+          <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>Delivery</span><span>${delivery === 0 ? 'Free' : '$' + delivery.toFixed(2)}</span>
+          </div>
+          <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>Tax</span><span>$${tax.toFixed(2)}</span>
+          </div>
+          <div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex justify-between font-bold text-lg">
+            <span>Total</span><span class="text-brand-600 dark:text-brand-400">$${total.toFixed(2)}</span>
+          </div>`;
+        document.getElementById('order-total-breakdown').innerHTML = breakdownHtml;
+
+        detailsSection.classList.remove('hidden');
+      }
+
+      function renderAllOrders() {
+        let orders = [];
+        if (typeof FreshMartCart !== 'undefined' && FreshMartCart.getOrders) {
+          orders = FreshMartCart.getOrders() || [];
+        }
+
+        if (!orders.length) {
+          allOrdersSection.classList.remove('hidden');
+          document.getElementById('all-orders-body').innerHTML = '';
+          document.getElementById('no-orders-message').classList.remove('hidden');
+          return;
+        }
+
+        document.getElementById('no-orders-message').classList.add('hidden');
+        allOrdersSection.classList.remove('hidden');
+
+        const sorted = orders.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        let tbody = '';
+        sorted.forEach(order => {
+          const st = statusLabel(order.status);
+          const itemCount = order.items ? order.items.reduce((sum, item) => sum + (item.quantity || item.qty || 1), 0) : 0;
+          tbody += `
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-750 transition">
+              <td class="py-4"><a href="order-tracking.html?id=${encodeURIComponent(order.id)}" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline font-mono">${order.id}</a></td>
+              <td class="py-4 text-sm text-gray-500 dark:text-gray-400 hidden sm:table-cell">${formatDateShort(order.createdAt)}</td>
+              <td class="py-4 text-sm">${itemCount} item${itemCount !== 1 ? 's' : ''}</td>
+              <td class="py-4 font-semibold">$${(order.total || 0).toFixed(2)}</td>
+              <td class="py-4"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${st.color}">${st.label}</span></td>
+              <td class="py-4 text-right"><a href="order-tracking.html?id=${encodeURIComponent(order.id)}" class="px-4 py-2 bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-300 rounded-lg text-sm font-semibold hover:bg-brand-200 dark:hover:bg-brand-800 transition">Track</a></td>
+            </tr>`;
+        });
+        document.getElementById('all-orders-body').innerHTML = tbody;
+      }
+
+      // Lookup button
+      document.getElementById('track-btn').addEventListener('click', function () {
+        const val = document.getElementById('lookup-input').value.trim();
+        if (val) {
+          window.location.href = `order-tracking.html?id=${encodeURIComponent(val)}`;
+        }
+      });
+
+      document.getElementById('lookup-input').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          document.getElementById('track-btn').click();
+        }
+      });
+
+      // Main logic
+      if (orderId) {
+        let order = null;
+        if (typeof FreshMartCart !== 'undefined' && FreshMartCart.getOrderById) {
+          order = FreshMartCart.getOrderById(orderId);
+        }
+
+        if (order) {
+          renderOrderStatus(order);
+          renderOrderDetails(order);
+        } else {
+          notFoundSection.classList.remove('hidden');
+        }
+      } else {
+        lookupSection.classList.remove('hidden');
+        renderAllOrders();
+      }
+    })();
+  </script>
+</body>
+</html>
