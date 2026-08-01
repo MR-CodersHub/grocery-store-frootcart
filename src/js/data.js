@@ -5,11 +5,25 @@
 const FreshMartData = (() => {
   'use strict';
 
+  const getBasePath = () => {
+    if (typeof window === 'undefined') return './';
+    const path = window.location.pathname;
+    if (path.includes('/public/pages/') || path.includes('/public/auth/')) return '../../';
+    if (path.includes('/auth/admin/') || path.includes('/auth/user/')) return '../../';
+    return './';
+  };
+
+  const fixImgPath = (path) => {
+    if (!path || path.startsWith('http://') || path.startsWith('https://')) return path;
+    const cleanPath = path.replace(/^(\.\.\/|\.\/|\/)+/, '');
+    return getBasePath() + cleanPath;
+  };
+
   const PRODUCTS = [
     { id: 1, name: 'Organic Avocados', category: 'produce', price: 4.99, oldPrice: 6.49, rating: 4.8, reviews: 124, img: 'https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?w=500&q=80', tag: 'Organic' },
     { id: 2, name: 'Fresh Strawberries', category: 'produce', price: 3.49, oldPrice: 4.99, rating: 4.9, reviews: 211, img: 'https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=500&q=80', tag: '-30%' },
     { id: 3, name: 'Sourdough Bread', category: 'bakery', price: 5.99, oldPrice: null, rating: 4.7, reviews: 88, img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80', tag: 'New' },
-    { id: 4, name: 'Free-Range Eggs (12)', category: 'dairy', price: 6.49, oldPrice: 7.99, rating: 4.8, reviews: 156, img: '../assets/img/eggs.jpg', tag: 'Best' },
+    { id: 4, name: 'Free-Range Eggs (12)', category: 'dairy', price: 6.49, oldPrice: 7.99, rating: 4.8, reviews: 156, img: fixImgPath('assets/img/eggs.jpg'), tag: 'Best' },
     { id: 5, name: 'Crisp Honeycrisp Apples', category: 'produce', price: 2.99, oldPrice: null, rating: 4.6, reviews: 72, img: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=500&q=80', tag: null },
     { id: 6, name: 'Greek Yogurt (500g)', category: 'dairy', price: 4.49, oldPrice: 5.99, rating: 4.7, reviews: 94, img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&q=80', tag: '-25%' },
     { id: 7, name: 'Wild Blueberries', category: 'produce', price: 5.99, oldPrice: null, rating: 4.9, reviews: 130, img: 'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=500&q=80', tag: 'Local' },
@@ -18,10 +32,10 @@ const FreshMartData = (() => {
     { id: 10, name: 'Almond Milk (1L)', category: 'dairy', price: 3.99, oldPrice: 4.99, rating: 4.5, reviews: 102, img: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&q=80', tag: '-20%' },
     { id: 11, name: 'Whole Wheat Bread', category: 'bakery', price: 4.49, oldPrice: null, rating: 4.7, reviews: 76, img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&q=80', tag: null },
     { id: 12, name: 'Fresh Orange Juice (1L)', category: 'beverages', price: 5.49, oldPrice: 6.99, rating: 4.8, reviews: 143, img: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=500&q=80', tag: '-21%' },
-    { id: 13, name: 'Granola Mix (500g)', category: 'pantry', price: 6.99, oldPrice: null, rating: 4.6, reviews: 55, img: '../../assets/img/granola.jpg', tag: 'New' },
+    { id: 13, name: 'Granola Mix (500g)', category: 'pantry', price: 6.99, oldPrice: null, rating: 4.6, reviews: 55, img: fixImgPath('assets/img/granola.jpg'), tag: 'New' },
     { id: 14, name: 'Dark Chocolate Bar', category: 'snacks', price: 3.49, oldPrice: null, rating: 4.9, reviews: 189, img: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500&q=80', tag: 'Best' },
     { id: 15, name: 'Sparkling Water (6-pack)', category: 'beverages', price: 4.99, oldPrice: 5.99, rating: 4.4, reviews: 67, img: 'https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&q=80', tag: '-17%' },
-    { id: 16, name: 'Mixed Nuts (300g)', category: 'snacks', price: 7.99, oldPrice: null, rating: 4.7, reviews: 112, img: '../../assets/img/mixed-nuts.jpg', tag: null }
+    { id: 16, name: 'Mixed Nuts (300g)', category: 'snacks', price: 7.99, oldPrice: null, rating: 4.7, reviews: 112, img: fixImgPath('assets/img/mixed-nuts.jpg'), tag: null }
   ];
 
   const SERVICES = [
@@ -312,20 +326,20 @@ const FreshMartData = (() => {
   ];
 
   const TEAM_MEMBERS = [
-    { name: 'Elena Rodriguez', role: 'Founder & CEO', img: '../../assets/img/buyer1.jpg', bio: 'Former food scientist with a passion for sustainable agriculture. Elena founded FreshMart to make farm-fresh food accessible to everyone.' },
-    { name: 'David Park', role: 'Head of Operations', img: '../../assets/img/buyer5.jpg', bio: 'Logistics expert who ensures every delivery reaches you on time and in perfect condition.' },
-    { name: 'Aisha Johnson', role: 'Head of Marketing', img: '../../assets/img/buyer3.jpg', bio: 'Creative strategist who connects FreshMart with communities that value fresh, local food.' },
-    { name: 'Elena Rossi', role: 'Head Chef Partner', img: '../../assets/img/buyer4.jpg', bio: 'Award-winning chef who designs our meal kits and curates recipe collections for our customers.' }
+    { name: 'Elena Rodriguez', role: 'Founder & CEO', img: fixImgPath('assets/img/buyer1.jpg'), bio: 'Former food scientist with a passion for sustainable agriculture. Elena founded FreshMart to make farm-fresh food accessible to everyone.' },
+    { name: 'David Park', role: 'Head of Operations', img: fixImgPath('assets/img/buyer5.jpg'), bio: 'Logistics expert who ensures every delivery reaches you on time and in perfect condition.' },
+    { name: 'Aisha Johnson', role: 'Head of Marketing', img: fixImgPath('assets/img/buyer3.jpg'), bio: 'Creative strategist who connects FreshMart with communities that value fresh, local food.' },
+    { name: 'Elena Rossi', role: 'Head Chef Partner', img: fixImgPath('assets/img/buyer4.jpg'), bio: 'Award-winning chef who designs our meal kits and curates recipe collections for our customers.' }
   ];
 
   const TESTIMONIALS = [
-    { name: 'Sarah Mitchell', role: 'Member since 2023', img: '../../assets/img/buyer1.jpg', rating: 5, text: 'The produce is always incredibly fresh — better than any supermarket I\'ve been to. Delivery is fast and the drivers are friendly.' },
-    { name: 'James Carter', role: 'Pro Member', img: '../../assets/img/buyer2.jpg', rating: 5, text: 'Switched from a big chain and never looked back. The weekly deals are actually good, and the app makes reordering effortless.' },
-    { name: 'Priya Raman', role: 'Member since 2024', img: '../../assets/img/buyer3.jpg', rating: 5, text: 'I love knowing exactly where my food comes from. FreshMart\'s transparency about their local farms is what made me a loyal customer.' },
-    { name: 'Tara Krish', role: 'Family Plan Member', img: '../../assets/img/buyer4.jpg', rating: 5, text: 'The Family plan is incredible value. Free meal kits, priority delivery, and my kids love the variety. Worth every penny.' },
+    { name: 'Sarah Mitchell', role: 'Member since 2023', img: fixImgPath('assets/img/buyer1.jpg'), rating: 5, text: 'The produce is always incredibly fresh — better than any supermarket I\'ve been to. Delivery is fast and the drivers are friendly.' },
+    { name: 'James Carter', role: 'Pro Member', img: fixImgPath('assets/img/buyer2.jpg'), rating: 5, text: 'Switched from a big chain and never looked back. The weekly deals are actually good, and the app makes reordering effortless.' },
+    { name: 'Priya Raman', role: 'Member since 2024', img: fixImgPath('assets/img/buyer3.jpg'), rating: 5, text: 'I love knowing exactly where my food comes from. FreshMart\'s transparency about their local farms is what made me a loyal customer.' },
+    { name: 'Tara Krish', role: 'Family Plan Member', img: fixImgPath('assets/img/buyer4.jpg'), rating: 5, text: 'The Family plan is incredible value. Free meal kits, priority delivery, and my kids love the variety. Worth every penny.' },
     { name: 'Nina Kowalski', role: 'Member since 2025', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80', rating: 4, text: 'Great selection of organic products. The quality is consistently high and the customer support team is very responsive.' },
     { name: 'Ahmed Hassan', role: 'Pro Member', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80', rating: 5, text: 'The meal kits have transformed our weeknight dinners. Pre-portioned ingredients, easy recipes, and restaurant-quality results every time.' }
   ];
 
-  return { PRODUCTS, SERVICES, BLOG_POSTS, PRICING_PLANS, FAQS, TEAM_MEMBERS, TESTIMONIALS };
+  return { PRODUCTS, SERVICES, BLOG_POSTS, PRICING_PLANS, FAQS, TEAM_MEMBERS, TESTIMONIALS, fixImgPath };
 })();
