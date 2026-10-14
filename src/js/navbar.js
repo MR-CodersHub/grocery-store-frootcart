@@ -35,7 +35,7 @@ const FreshMartNavbar = (() => {
       <div class="navbar-container max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
         <a href="${base}index.html" class="flex items-center gap-2 shrink-0" aria-label="Froot Cart home">
           <span class="grid place-items-center w-9 h-9 rounded-full text-white">
-            <img src = "../../assets/img/logo.png" alt = "Froot Cart Logo" class = "w-8 h-8" />
+            <img src = "assets/img/logo.png" alt = "Froot Cart Logo" class = "w-8 h-8" />
           </span>
           <span class="text-xl font-bold tracking-tight"><span class="text-brand-600">Froot Cart</span></span>
         </a>
