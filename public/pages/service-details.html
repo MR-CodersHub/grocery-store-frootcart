@@ -1,28 +1,27 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#16a34a" />
-    <meta name="description" content="FreshMart — Service Details. Learn more about our delivery services." />
-    <title>Service Details — FreshMart</title>
+    <meta name="theme-color" content="#b90000" />
+    <meta name="description" content="Froot Cart — Service Details. Learn more about our delivery services." />
+    <title>Service Details — Froot Cart</title>
     <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
-            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            fontFamily: { sans: ['Google Sans', 'sans-serif'] },
             colors: {
-              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
-              cream: '#fefce8',
-              ink: '#1f2937',
+              brand: { 50: '#fff0f0', 100: '#ffd6d6', 200: '#ffaaaa', 300: '#ff7070', 400: '#e83030', 500: '#c90000', 600: '#b90000', 700: '#9a0000', 800: '#7a0000', 900: '#5a0000' },
+              cream: '#fff9f0',              ink: '#1f2937',
             },
-            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+            boxShadow: { soft: '0 10px 30px -10px rgba(185, 0, 0, 0.25)' },
           },
         },
       };
@@ -191,7 +190,7 @@
           return;
         }
 
-        document.title = `${service.title} — FreshMart`;
+        document.title = `${service.title} — Froot Cart`;
 
         const heroCategory = document.getElementById('hero-category');
         const heroTitle = document.getElementById('hero-title');

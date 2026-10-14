@@ -3,26 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#16a34a" />
-    <meta name="description" content="FreshMart — fresh groceries, produce, dairy, bakery and pantry staples delivered to your door. Free delivery on orders over $40." />
-    <title>FreshMart — Fresh Groceries, Delivered Daily</title>
+    <meta name="theme-color" content="#b90000" />
+    <meta name="description" content="Froot Cart — fresh groceries, produce, dairy, bakery and pantry staples delivered to your door. Free delivery on orders over $40." />
+    <title>Froot Cart — Fresh Groceries, Delivered Daily</title>
     <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
-            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            fontFamily: { sans: ['Google Sans', 'sans-serif'] },
             colors: {
-              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
-              cream: '#fefce8',
-              ink: '#1f2937',
+              brand: { 50: '#fff0f0', 100: '#ffd6d6', 200: '#ffaaaa', 300: '#ff7070', 400: '#e83030', 500: '#c90000', 600: '#b90000', 700: '#9a0000', 800: '#7a0000', 900: '#5a0000' },
+              cream: '#fff9f0', ink: '#1f2937',
             },
-            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+            boxShadow: { soft: '0 10px 30px -10px rgba(185, 0, 0, 0.25)' },
           },
         },
       };
@@ -30,97 +29,90 @@
     <link rel="stylesheet" href="./src/css/style.css" />
   </head>
   <body class="font-sans text-ink bg-white dark:bg-gray-900 dark:text-gray-100 antialiased">
-    <div class="bg-brand-600 dark:bg-brand-800 text-white text-sm">
-      <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
-        <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1m-4 0a1 1 0 100-2 1 1 0 000 2zm10 0a1 1 0 100-2 1 1 0 000 2z"/></svg> Free delivery on orders over <strong>$40</strong></span>
-        <span class="hidden sm:inline opacity-80">|</span>
-        <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 01-9-9c0-4.97 3.582-9 8-9 4.97 0 9 4.03 9 9 0 2.12-.74 4.07-1.97 5.61L12 21z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21V11"/></svg> 100% fresh guarantee</span>
-        <span class="hidden md:inline opacity-80">|</span>
-        <span class="hidden md:inline">Use code <strong>FRESH30</strong> for 30% off</span>
-      </div>
-    </div>
     <div id="navbar-placeholder"></div>
 
     <main id="top">
       <!-- HERO -->
-      <section class="relative overflow-hidden min-h-[90vh] flex items-center">
+      <section class="relative overflow-hidden min-h-[95vh] flex items-center">
         <!-- Full-bleed background image -->
         <div class="absolute inset-0">
           <img
-            src="./assets/img/hero-bg.png"
+            src="./assets/img/bg-1.jpeg"
             alt="Fresh groceries and vegetables"
-            class="w-full h-full object-cover object-right"
+            class="w-full h-full object-cover object-center"
             loading="eager"
           />
+          <!-- Dark overlay for contrast -->
+          <div class="absolute inset-0"></div>
           </div>
 
-        <!-- Content — anchored to the left (empty green space in the image) -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-28 w-full">
-          <div class="max-w-xl reveal">
+        <!-- Content — centered -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-28 w-full flex justify-center">
+          <div class="max-w-2xl text-center reveal">
 
             <!-- Eyebrow badge -->
-            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold mb-6 tracking-wide">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-black text-xs font-semibold mb-6 tracking-wide">
               <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
               Farm-fresh · Delivered daily
             </span>
 
             <!-- Headline -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white drop-shadow-sm">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-black drop-shadow-sm">
               Fresh groceries,
-              <span class="block text-brand-400 mt-1">delivered to your door.</span>
+              <span class="block text-brand-600 mt-1">delivered to your door.</span>
             </h1>
 
             <!-- Sub-copy -->
-            <p class="mt-5 text-base md:text-lg text-white/85 leading-relaxed max-w-md">
+            <p class="mt-5 text-base md:text-lg text-black/75 leading-relaxed max-w-xl mx-auto">
               Hand-picked produce, quality dairy, fresh-baked bread and pantry staples — sourced from local farms and delivered in under an hour.
             </p>
 
             <!-- CTA buttons -->
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#categories" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold shadow-soft transition-all duration-300 btn-pop text-sm">
+            <div class="mt-8 flex flex-wrap gap-3 justify-center">
+              <a href="#categories" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold shadow-soft transition-all duration-300 btn-pop text-sm">
                 Shop Now
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
-              <a href="#deals" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 hover:bg-white/25 text-white font-semibold transition-all duration-300 btn-pop text-sm">
+              <a href="#deals" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/15 backdrop-blur-sm border border-black/30 hover:bg-black/25 text-black font-semibold transition-all duration-300 btn-pop text-sm">
                 Browse Deals
               </a>
             </div>
 
             <!-- Trust badges -->
-            <div class="mt-10 flex flex-wrap items-center gap-6">
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-6">
               <!-- Avatar stack -->
               <div class="flex items-center gap-3">
                 <div class="flex -space-x-2">
-                  <img src="./assets/img/buyer1.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
-                  <img src="./assets/img/buyer2.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
-                  <img src="./assets/img/buyer3.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
-                  <div class="w-9 h-9 rounded-full bg-brand-500 border-2 border-white/60 grid place-items-center text-white text-[10px] font-bold">+</div>
+                  <img src="./assets/img/buyer1.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-black/60" />
+                  <img src="./assets/img/buyer2.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-black/60" />
+                  <img src="./assets/img/buyer3.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-black/60" />
+                  <div class="w-9 h-9 rounded-full bg-brand-500 border-2 border-black/60 grid place-items-center text-black text-[10px] font-bold">+</div>
                 </div>
-                <div class="text-white/90 text-sm">
-                  <div class="font-bold text-white">12,000+</div>
-                  <div class="text-xs text-white/70">happy customers</div>
+                <div class="text-black/90 text-sm">
+                  <div class="font-bold text-black">12,000+</div>
+                  <div class="text-xs text-black/70">happy customers</div>
                 </div>
               </div>
 
               <!-- Divider -->
-              <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
+              <div class="h-8 w-px bg-black/30 hidden sm:block"></div>
 
               <!-- Rating -->
-              <div class="text-white/90 text-sm">
-                <div class="flex items-center gap-1 font-bold text-white">
+              <div class="text-black/90 text-sm">
+                <div class="flex items-center gap-1 font-bold text-black">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                   4.9 / 5.0
                 </div>
-                <div class="text-xs text-white/70">3,000+ reviews</div>
+                <div class="text-xs text-black/70">3,000+ reviews</div>
               </div>
 
               <!-- Divider -->
-              <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
+              <div class="h-8 w-px bg-black/30 hidden sm:block"></div>
 
               <!-- Free delivery -->
-              <div class="text-white/90 text-sm">
-                <div class="font-bold text-white flex items-center gap-1">Free delivery</div>
-                <div class="text-xs text-white/70">on orders over $40</div>
+              <div class="text-black/90 text-sm">
+                <div class="font-bold text-black flex items-center gap-1">Free delivery</div>
+                <div class="text-xs text-black/70">on orders over $40</div>
               </div>
             </div>
 
@@ -244,7 +236,7 @@
             </article>
             <article class="bg-cream dark:bg-gray-800 rounded-3xl p-7 reveal">
               <div class="text-amber-400 text-lg">★★★★★</div>
-              <p class="mt-3 text-gray-700 dark:text-gray-300">"I love knowing exactly where my food comes from. FreshMart's transparency about their local farms is what made me a loyal customer."</p>
+              <p class="mt-3 text-gray-700 dark:text-gray-300">"I love knowing exactly where my food comes from. Froot Cart's transparency about their local farms is what made me a loyal customer."</p>
               <div class="mt-5 flex items-center gap-3">   <img src="./assets/img/buyer3.jpg" alt="Elena M." class="w-10 h-10 rounded-full object-cover" />
                 <div><div class="font-semibold text-sm">Priya Raman</div><div class="text-xs text-gray-500">Verified buyer</div></div>
               </div>

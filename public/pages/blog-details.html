@@ -1,28 +1,27 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#16a34a" />
+    <meta name="theme-color" content="#b90000" />
     <meta name="description" content="FreshMart Blog — Read the full article." />
-    <title>Blog Article — FreshMart</title>
+    <title>Blog Article — Froot Cart</title>
     <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
-            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            fontFamily: { sans: ['Google Sans', 'sans-serif'] },
             colors: {
-              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
-              cream: '#fefce8',
-              ink: '#1f2937',
+              brand: { 50: '#fff0f0', 100: '#ffd6d6', 200: '#ffaaaa', 300: '#ff7070', 400: '#e83030', 500: '#c90000', 600: '#b90000', 700: '#9a0000', 800: '#7a0000', 900: '#5a0000' },
+              cream: '#fff9f0',              ink: '#1f2937',
             },
-            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+            boxShadow: { soft: '0 10px 30px -10px rgba(185, 0, 0, 0.25)' },
           },
         },
       };
@@ -193,7 +192,7 @@
           return;
         }
 
-        document.title = `${post.title} — FreshMart Blog`;
+        document.title = `${post.title} — Froot Cart Blog`;
 
         document.getElementById('article-category').textContent = post.category;
         document.getElementById('article-title').textContent = post.title;
@@ -220,12 +219,12 @@
 
         const authorBios = {
           'Sarah Mitchell': 'Lifestyle writer and sustainability advocate. Sarah covers topics from seasonal eating to eco-friendly living. She believes small changes in daily habits can make a big impact on the planet.',
-          'Chef Marcus': 'Head Chef Partner at FreshMart. Marcus designs meal kits and creates recipes that make fresh, healthy cooking accessible to everyone. He trained at Le Cordon Bleu and has over 15 years of culinary experience.',
+          'Chef Marcus': 'Head Chef Partner at Froot Cart. Marcus designs meal kits and creates recipes that make fresh, healthy cooking accessible to everyone. He trained at Le Cordon Bleu and has over 15 years of culinary experience.',
           'Dr. Lisa Chen': 'Nutritionist and health researcher. Dr. Chen writes evidence-based articles about the benefits of organic food, healthy eating, and wellness. She holds a PhD in Nutritional Science from Stanford.'
         };
 
         document.getElementById('author-name').textContent = post.author;
-        document.getElementById('author-bio').textContent = authorBios[post.author] || 'Contributing writer for FreshMart. Passionate about fresh food, healthy living, and sharing knowledge with our community.';
+        document.getElementById('author-bio').textContent = authorBios[post.author] || 'Contributing writer for Froot Cart. Passionate about fresh food, healthy living, and sharing knowledge with our community.';
 
         const authorInitials = post.author.split(' ').map(n => n[0]).join('');
         document.getElementById('author-avatar').innerHTML = `<div class="w-full h-full flex items-center justify-center text-brand-700 dark:text-brand-300 font-bold text-xl">${authorInitials}</div>`;

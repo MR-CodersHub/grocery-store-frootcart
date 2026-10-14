@@ -33,13 +33,11 @@ const FreshMartNavbar = (() => {
     const header = `
     <header id="site-header" class="sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-800">
       <div class="navbar-container max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
-        <a href="${base}index.html" class="flex items-center gap-2 shrink-0" aria-label="FreshMart home">
-          <span class="grid place-items-center w-9 h-9 rounded-full bg-brand-600 text-white">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-              <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-            </svg>
+        <a href="${base}index.html" class="flex items-center gap-2 shrink-0" aria-label="Froot Cart home">
+          <span class="grid place-items-center w-9 h-9 rounded-full text-white">
+            <img src = "../../assets/img/logo.png" alt = "Froot Cart Logo" class = "w-8 h-8" />
           </span>
-          <span class="text-xl font-bold tracking-tight">Fresh<span class="text-brand-600">Mart</span></span>
+          <span class="text-xl font-bold tracking-tight"><span class="text-brand-600">Froot Cart</span></span>
         </a>
 
         <nav class="hidden lg:flex items-center gap-7 ml-6 text-sm font-medium text-gray-700 dark:text-gray-300" aria-label="Primary" id="desktop-nav">

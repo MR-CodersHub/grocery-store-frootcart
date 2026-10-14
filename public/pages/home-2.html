@@ -3,26 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#16a34a" />
-    <meta name="description" content="FreshMart Organic — farm-to-table freshness delivered to your door. Shop certified organic produce from local partner farms." />
-    <title>FreshMart — Organic &amp; Farm-to-Table Delivery</title>
+    <meta name="theme-color" content="#b90000" />
+    <meta name="description" content="Froot Cart Organic — farm-to-table freshness delivered to your door. Shop certified organic produce from local partner farms." />
+    <title>Froot Cart — Organic &amp; Farm-to-Table Delivery</title>
     <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
-            fontFamily: { sans: ['Poppins', 'sans-serif'], display: ['Pacifico', 'cursive'] },
+            fontFamily: { sans: ['Google Sans', 'sans-serif'] },
             colors: {
-              brand: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' },
-              cream: '#fefce8',
-              ink: '#1f2937',
+              brand: { 50: '#fff0f0', 100: '#ffd6d6', 200: '#ffaaaa', 300: '#ff7070', 400: '#e83030', 500: '#c90000', 600: '#b90000', 700: '#9a0000', 800: '#7a0000', 900: '#5a0000' },
+              cream: '#fff9f0',              ink: '#1f2937',
             },
-            boxShadow: { soft: '0 10px 30px -10px rgba(22, 163, 74, 0.25)' },
+            boxShadow: { soft: '0 10px 30px -10px rgba(185, 0, 0, 0.25)' },
           },
         },
       };
@@ -37,66 +36,68 @@
       <!-- ════════════════════════════════════════════
            SECTION 1 — HERO
            ════════════════════════════════════════════ -->
-      <section class="relative overflow-hidden min-h-[85vh] flex items-center bg-white dark:bg-gray-900">
+      <section class="relative overflow-hidden min-h-screen flex items-center bg-white dark:bg-gray-900">
         <!-- Background image wrapper -->
         <div class="absolute inset-0 z-0">
           <img
-            src="../../assets/img/home-bg.jpg"
+            src="../../assets/img/hero-bg.jpeg"
             alt="Organic harvest of fruits and vegetables"
-            class="w-full h-full object-cover object-right select-none pointer-events-none opacity-90 dark:opacity-40"
+            class="w-full h-full object-cover object-center select-none pointer-events-none"
             loading="eager"
           />
+          <!-- Dark overlay for contrast -->
+          <div class="absolute inset-0 bg-black/50"></div>
           </div>
 
         <!-- Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-18 w-full">
-          <div class="max-w-xl reveal">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-400 text-xs font-semibold mb-6 tracking-wide">
-              <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-12 md:py-20 w-full flex justify-center">
+          <div class="max-w-2xl text-center reveal">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold mb-6 tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
               100% Certified Organic Farm-to-Table
             </span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-gray-950 dark:text-white">
-              Farm-fresh organic food, <span class="text-brand-600 dark:text-brand-500">delivered</span> with care.
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+              Farm-fresh organic food, <span class="text-brand-600">delivered</span> with care.
             </h1>
-            <p class="mt-5 text-base md:text-lg text-gray-700 dark:text-gray-350 max-w-lg leading-relaxed">
+            <p class="mt-5 text-base md:text-lg text-white/85 max-w-xl mx-auto leading-relaxed">
               We partner directly with local organic farms so you get the freshest seasonal produce, hormone-free dairy, and artisan goods — harvested at peak ripeness and delivered the same day.
             </p>
-            <div class="mt-8 flex flex-wrap gap-4">
+            <div class="mt-8 flex flex-wrap gap-4 justify-center">
               <a href="#organic-categories" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold shadow-soft transition-all duration-300 btn-pop text-sm">
                 Shop Organic
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
-              <a href="services.html" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-300 dark:border-gray-600 hover:border-brand-600 dark:hover:border-brand-500 text-gray-700 dark:text-gray-300 font-semibold transition-all duration-300 btn-pop text-sm">
+              <a href="services.html" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 hover:bg-white/25 text-white font-semibold transition-all duration-300 btn-pop text-sm">
                 Browse Products
               </a>
             </div>
             
-            <div class="mt-10 flex flex-wrap items-center gap-6">
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-6">
               <!-- Avatar Stack -->
               <div class="flex items-center gap-3">
                 <div class="flex -space-x-2">
-                  <img src="../../assets/img/buyer1.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-gray-800" />
-                  <img src="../../assets/img/buyer2.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-gray-800" />
-                  <img src="../../assets/img/buyer3.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white dark:border-gray-800" />
-                  <div class="w-9 h-9 rounded-full bg-brand-500 border-2 border-white dark:border-gray-800 grid place-items-center text-white text-[10px] font-bold">+</div>
+                  <img src="../../assets/img/buyer1.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
+                  <img src="../../assets/img/buyer2.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
+                  <img src="../../assets/img/buyer3.jpg" alt="" class="w-9 h-9 rounded-full object-cover border-2 border-white/60" />
+                  <div class="w-9 h-9 rounded-full bg-brand-500 border-2 border-white/60 grid place-items-center text-white text-[10px] font-bold">+</div>
                 </div>
-                <div class="text-gray-700 dark:text-gray-300 text-sm">
-                  <div class="font-bold text-gray-900 dark:text-white">8,500+</div>
-                  <div class="text-xs text-gray-700 dark:text-gray-400">organic families served</div>
+                <div class="text-white/90 text-sm">
+                  <div class="font-bold text-white">8,500+</div>
+                  <div class="text-xs text-white/70">organic families served</div>
                 </div>
               </div>
 
               <!-- Divider -->
-              <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 hidden sm:block"></div>
+              <div class="h-8 w-px bg-white/30 hidden sm:block"></div>
 
               <!-- Extra Trust Element -->
               <div class="flex items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+                <div class="w-10 h-10 rounded-full bg-white/15 text-white flex items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <div class="text-sm">
-                  <div class="font-bold text-gray-900 dark:text-white">Eco-Certified</div>
-                  <div class="text-xs text-gray-700 dark:text-gray-400">100% sustainable packaging</div>
+                  <div class="font-bold text-white">Eco-Certified</div>
+                  <div class="text-xs text-white/70">100% sustainable packaging</div>
                 </div>
               </div>
             </div>
@@ -370,7 +371,7 @@
               <div class="flex items-center gap-1 text-amber-400 text-lg">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
-              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"I switched to FreshMart's organic line and the difference in taste is incredible. You can tell these tomatoes were picked that morning — nothing like the supermarket ones."</p>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"I switched to Froot Cart's organic line and the difference in taste is incredible. You can tell these tomatoes were picked that morning — nothing like the supermarket ones."</p>
               <div class="mt-5 flex items-center gap-3">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Elena M." class="w-10 h-10 rounded-full object-cover" />
                 <div>
@@ -396,7 +397,7 @@
               <div class="flex items-center gap-1 text-amber-400 text-lg">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
-              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"As a chef, I'm incredibly picky about produce. FreshMart's farm partners deliver restaurant-quality ingredients. The heirloom tomatoes are absolutely perfect for my salads."</p>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">"As a chef, I'm incredibly picky about produce. Froot Cart's farm partners deliver restaurant-quality ingredients. The heirloom tomatoes are absolutely perfect for my salads."</p>
               <div class="mt-5 flex items-center gap-3">
                 <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80" alt="Priya S." class="w-10 h-10 rounded-full object-cover" />
                 <div>
