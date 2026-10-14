@@ -6,7 +6,6 @@ const FreshMartFooter = (() => {
 
   function getBasePath() {
     const path = window.location.pathname;
-    if (path.endsWith('index.html') || path.endsWith('freshmart/') || path.endsWith('freshmart')) return './';
     if (path.includes('/public/pages/') || path.includes('/public/auth/')) return '../../';
     if (path.includes('/auth/admin/') || path.includes('/auth/user/')) return '../../';
     return './';
@@ -23,7 +22,7 @@ const FreshMartFooter = (() => {
         <div class="col-span-2 md:col-span-1">
           <a href="${base}index.html" class="flex items-center gap-2 text-white text-xl font-bold">
             <span class="grid place-items-center w-9 h-9 rounded-full text-white">
-              <img src="${base}assets/img/logo.png" alt = "FreshMart Logo" class = "w-8 h-8" />
+              <img src="${base}assets/img/logo.png" alt="Froot Cart Logo" class="w-8 h-8" />
             </span>
             <span class="text-xl font-bold tracking-tight"><span class="text-brand-500">Froot Cart</span></span>
           </a>
