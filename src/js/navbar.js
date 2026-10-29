@@ -46,8 +46,7 @@ const FreshMartNavbar = (() => {
           <a href="${base}public/pages/products.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/products.html">Products</a>
           <a href="${base}public/pages/blog.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/blog.html">Blog</a>
           <a href="${base}public/pages/contact.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}public/pages/contact.html">Contact</a>
-          <a href="${base}auth/user/user-dashboard.html" class="nav-link relative pb-0.5 hover:text-brand-600 transition" data-href="${base}auth/user/user-dashboard.html">Dashboard</a>
-        </nav>
+          </nav>
 
         <!-- Right-side controls (Right) -->
         <div class="flex items-center justify-end gap-1.5 ml-auto lg:ml-0 shrink-0 lg:w-64">
@@ -86,8 +85,7 @@ const FreshMartNavbar = (() => {
           <a href="${base}public/pages/blog.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/blog.html">Blog</a>
           <a href="${base}public/pages/pricing.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/pricing.html">Pricing</a>
           <a href="${base}public/pages/contact.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200" data-href="${base}public/pages/contact.html">Contact</a>
-          <a href="${base}auth/user/user-dashboard.html" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold" data-href="${base}auth/user/user-dashboard.html">Dashboard</a>
-          <!-- Mobile CTA -->
+         <!-- Mobile CTA -->
           <a href="${base}public/pages/products.html"
             class="mt-2 flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 active:scale-95 text-white text-sm font-semibold shadow-soft transition-all duration-200">
             Get Started
