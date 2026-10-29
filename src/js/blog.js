@@ -38,7 +38,7 @@ const FreshMartBlog = (() => {
           </a>
           <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 line-clamp-2">${post.excerpt}</p>
           <div class="mt-4 flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-brand-200 dark:bg-brand-800 flex items-center justify-center text-brand-700 font-bold text-xs">${post.author.split(' ').map(n => n[0]).join('')}</div>
+            <div class="w-8 h-8 rounded-full bg-brand-600 dark:bg-brand-500 flex items-center justify-center text-white font-bold text-xs">${post.author.split(' ').map(n => n[0]).join('')}</div>
             <div>
               <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">${post.author}</div>
               <div class="text-xs text-gray-500 dark:text-gray-400">${formatDate(post.date)}</div>

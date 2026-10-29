@@ -9,6 +9,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ─────────── STICKY HEADER — scroll-up reveal ─────────── */
+#site-header {
+  will-change: transform;
+}
+/* Compensate for the fixed header so page content is not hidden under it */
+#navbar-placeholder {
+  height: 65px; /* matches py-3 + content height */
+}
+
+/* ─────────── HERO HEIGHT CONVENTION ─────────── */
+/* Inner-page heroes use this for consistent height across Products, Blog, About, etc. */
+.page-hero {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+}
+
+/* ─────────── BLOG CARD AUTHOR AVATAR — ensure contrast ─────────── */
+.blog-card .author-avatar {
+  background-color: #b90000;
+  color: #ffffff;
+}
+html.dark .blog-card .author-avatar {
+  background-color: #7a0000;
+  color: #ffd6d6;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;

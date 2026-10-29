@@ -20,8 +20,8 @@ const FreshMartTheme = (() => {
       : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
   }
 
-  function getRtlIcon() {
-    return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg>`;
+  function getRtlIcon(isRtl) {
+    return `<span class="text-xs font-bold tracking-wider ${isRtl ? 'text-brand-600 dark:text-brand-400' : ''}">RTL</span>`;
   }
 
   function applyTheme(isDark) {
@@ -59,12 +59,13 @@ const FreshMartTheme = (() => {
     }
 
     if (rtlToggle) {
-      rtlToggle.innerHTML = getRtlIcon();
+      rtlToggle.innerHTML = getRtlIcon(isRtl);
       rtlToggle.addEventListener('click', () => {
         const currentRtl = document.documentElement.dir === 'rtl';
         const newRtl = !currentRtl;
         applyRtl(newRtl);
         localStorage.setItem(RTL_KEY, newRtl ? 'true' : 'false');
+        rtlToggle.innerHTML = getRtlIcon(newRtl);
       });
     }
 
